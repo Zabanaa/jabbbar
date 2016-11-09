@@ -1,7 +1,10 @@
+import requests as req
+
 __author__ = "Karim Cheurfi"
 
 API_ENDPOINT    = "https://api.dribbble.com/v1"
 AUTH_ENDPOINT   = "https://dribbble.com/oauth/authorize"
+OAUTH_ENDPOINT  = "https://dribbble.com/oauth/token"
 SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Zabbbana(object):
@@ -13,17 +16,24 @@ class Zabbbana(object):
         self.state          = state
         self.scope          = "+".join(scope)
 
+    @property
     def generate_auth_url(self):
+        """ Generates a URL to the authorize endpoint used by dribbble to return a grant_code """
         return "{}?client_id={}&redirect_uri={}&scope={}&state={}".format(AUTH_ENDPOINT, self.client_id,\
                 self.redirect_uri, self.scope, self.state)
 
-    def check_valid_state(self, state):
-        """check that self.state matches state (return true)"""
-        pass
+    def get_access_token(self, auth_code=None):
 
-    def get_access_token(self, auth_code):
-        # send a token request using the code
-        # extract the code from the response
-        # set selt.access_token to the extracted token
-        # return the effin token
-        pass
+        """ takes the grant code provided during Object.generate_auth_url() and makes a request to the dribbble api for
+        an access token. Extracts it from the response and stores it a an instance variable"""
+
+        oauth_params = {
+            'client_id': self.client_id,
+            'client_secret': self.client_secret,
+            'code': auth_code,
+            'redirect_uri': self.redirect_uri
+        }
+        token_request       = req.post(OAUTH_ENDPOINT, data=oauth_params)
+        token_response      = token_request.json()
+        access_token        = token_response['access_token']
+        self.access_token   = access_token
