@@ -1,5 +1,7 @@
 __author__ = "Karim Cheurfi"
 
+API_ENDPOINT = "https://api.dribbble.com/v1/"
+
 class Zabbbana(object):
 
     def __init__(self, client_id, client_secret, redirect_uri, scope, state):
@@ -11,9 +13,8 @@ class Zabbbana(object):
         self.scope          = self.generate_scope(scope)
 
     def generate_auth_url(self):
-        """return dribbble.com/authorize?client_id&client_secret&scope&state"""
-        pass
-
+        return "{}/authorize?client_id={}&redirect_uri={}&scope={}&state={}".format(API_ENDPOINT, self.client_id,\
+                self.redirect_uri, self.scope, self.state)
 
     def generate_scope(self, scope_list):
         # loop through the list and return a string joined with + signs
