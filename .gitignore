@@ -18,6 +18,7 @@
 .coverage
 .Python
 pip-selfcheck.json
+credentials.py
 
 # Ruby specific (for Travis)
 .rvmrc
