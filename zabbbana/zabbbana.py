@@ -1,19 +1,20 @@
 __author__ = "Karim Cheurfi"
 
-API_ENDPOINT = "https://api.dribbble.com/v1/"
+API_ENDPOINT    = "https://api.dribbble.com/v1"
+AUTH_ENDPOINT   = "https://dribbble.com/oauth/authorize"
+SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Zabbbana(object):
 
-    def __init__(self, client_id, client_secret, redirect_uri, scope, state):
+    def __init__(self, client_id, client_secret, redirect_uri, scope=SCOPE, state):
         self.client_id      = client_id
         self.client_secret  = client_secret
         self.redirect_uri   = redirect_uri
-        self.access_token   = None
         self.state          = state
-        self.scope          = self.generate_scope(scope)
+        self.scope          = scope
 
     def generate_auth_url(self):
-        return "{}/authorize?client_id={}&redirect_uri={}&scope={}&state={}".format(API_ENDPOINT, self.client_id,\
+        return "{}?client_id={}&redirect_uri={}&scope={}&state={}".format(AUTH_ENDPOINT, self.client_id,\
                 self.redirect_uri, self.scope, self.state)
 
     def generate_scope(self, scope_list):
@@ -31,3 +32,8 @@ class Zabbbana(object):
         # set selt.access_token to the extracted token
         # return the effin token
         pass
+
+
+
+
+
