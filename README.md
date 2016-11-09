@@ -14,8 +14,6 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 - generate_auth_url
-- generate_scope
-- check_valid_state
 - get_access_token
 
 ======================
