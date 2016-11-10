@@ -4,16 +4,17 @@ from zabbbana import Zabbbana
 
 class BaseTest(unittest.TestCase):
 
-    maxDiff = None
+    maxDiff             = None
+    default_bucket_id   = "2754"
 
     def setUp(self):
         self.api = Zabbbana(
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,
-            scope=['write'],
             state="myrandomkey",
             redirect_uri=REDIRECT_URI
         )
+        self.api.access_token = ACCESS_TOKEN
 
     def test_generate_auth_url(self):
         expected_url = "https://dribbble.com/oauth/authorize?client_id={}&redirect_uri={}&scope={}&state={}"\
