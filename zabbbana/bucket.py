@@ -24,3 +24,7 @@ class Bucket(zbn):
                                   data=bucket_data)
         response        = update_bucket.json()
         return response
+
+    def delete(self, bucket_id=None):
+        response  = req.delete("{}/buckets/{}".format(zbn.API_ENDPOINT, bucket_id), headers=self.auth_header)
+        return response
