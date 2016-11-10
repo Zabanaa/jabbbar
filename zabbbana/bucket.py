@@ -17,3 +17,10 @@ class Bucket(zbn):
         post_bucket     = req.post("{}/buckets".format(zbn.API_ENDPOINT), headers=self.auth_header, data=bucket_data)
         response        = post_bucket.json()
         return response
+
+    def update(self, bucket_id=None, name=None, description=None):
+        bucket_data     = {'name': name, 'description': description}
+        update_bucket   = req.put("{}/buckets/{}".format(zbn.API_ENDPOINT, bucket_id), headers=self.auth_header,\
+                                  data=bucket_data)
+        response        = update_bucket.json()
+        return response
