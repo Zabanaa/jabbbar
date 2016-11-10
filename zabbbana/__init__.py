@@ -9,12 +9,13 @@ SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Zabbbana(object):
 
-    def __init__(self, client_id=None, client_secret=None, redirect_uri=None, state=None, scope=SCOPE):
+    def __init__(self, client_id=None, client_secret=None, redirect_uri=None, access_token=None, state=None, scope=SCOPE):
         self.client_id      = client_id
         self.client_secret  = client_secret
         self.redirect_uri   = redirect_uri
         self.state          = state
         self.scope          = "+".join(scope)
+        self.access_token   = access_token
 
     @property
     def generate_auth_url(self):
