@@ -9,6 +9,8 @@ SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Zabbbana(object):
 
+    API_ENDPOINT    = "https://api.dribbble.com/v1"
+
     def __init__(self, client_id=None, client_secret=None, redirect_uri=None, access_token=None, state=None, scope=SCOPE):
         self.client_id      = client_id
         self.client_secret  = client_secret
