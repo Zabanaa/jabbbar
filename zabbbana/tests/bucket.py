@@ -16,5 +16,11 @@ class BucketTest(unittest.TestCase):
         details = self.bucket.get_details()
         self.assertIn('shots_count', details)
 
+    def test_create_bucket(self):
+        bucket_name = "my new name"
+        bucket_description = "new cool bucket"
+        post_bucket = self.bucket.create(name=bucket_name, description=bucket_description)
+        self.assertIn('created_at', post_bucket)
+
 if __name__ == "__main__":
     unittest.main()
