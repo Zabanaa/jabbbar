@@ -26,8 +26,8 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Bucket.get_details()
-- Bucket.getShots(id)
+- Bucket.get_details() // DONE
+- Bucket.getShots() // DONE
 - Bucket.addShot(id)
 - Bucket.deleteShot(id)
 
