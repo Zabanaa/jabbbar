@@ -8,7 +8,6 @@ class Bucket(zbn):
         self.bucket_id = bucket_id
 
     def get_details(self):
-        headers = {'Authorization': 'Bearer {}'.format(self.access_token)}
-        bucket_request = req.get("{}/buckets/{}".format(zbn.API_ENDPOINT, self.bucket_id), headers=headers)
+        bucket_request = req.get("{}/buckets/{}".format(zbn.API_ENDPOINT, self.bucket_id), headers=self.headers)
         details = bucket_request.json()
         return details
