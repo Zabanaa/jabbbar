@@ -20,5 +20,8 @@ class ProjectTest(unittest.TestCase):
         response = self.project.get_shots()
         self.assertIs(type(response), list)
 
+        respone = self.project.get_shots(project_id=4)
+        self.assertIs(type(response), list)
+
 if __name__ == "__main__":
     unittest.main()
