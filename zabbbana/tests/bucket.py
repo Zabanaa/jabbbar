@@ -31,5 +31,9 @@ class BucketTest(unittest.TestCase):
         response    = self.bucket.delete(bucket_id=442503)
         self.assertEqual(204, response.__dict__['status_code'])
 
+    def test_list_all_shots(self):
+        response    = self.bucket.list_shots()
+        print(response)
+
 if __name__ == "__main__":
     unittest.main()
