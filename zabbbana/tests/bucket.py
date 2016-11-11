@@ -1,14 +1,11 @@
 import unittest
-from .credentials import *
 from zabbbana import Zabbbana
 from zabbbana.bucket import Bucket
+from zabbbana.tests import jordan
 
 EXTERNAL_BUCKET_ID = 2755
 BUCKET_TO_UPDATE   = 442480
 DEFAULT_SHOT_ID     = 471756
-
-jordan = Zabbbana(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN, state="myrandomkey",\
-                  redirect_uri=REDIRECT_URI)
 
 class BucketTest(unittest.TestCase):
 
