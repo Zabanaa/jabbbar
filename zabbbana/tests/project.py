@@ -6,11 +6,19 @@ from zabbbana.tests import jordan
 class ProjectTest(unittest.TestCase):
 
     def setUp(self):
-        self.project = Project(jordan)
+        self.project = Project(jordan,3)
 
     def test_get_details(self):
-        details = self.project.get_details(project_id=3)
-        self.assertEqual(details['id'], 3)
+        response = self.project.get_details()
+        self.assertEqual(response['id'], self.project.project_id)
+
+        response = self.project.get_details(project_id=4)
+        self.assertEqual(response['id'], 4)
+
+    def test_get_shots(self):
+
+        response = self.project.get_shots()
+        self.assertIs(type(response), list)
 
 if __name__ == "__main__":
     unittest.main()
