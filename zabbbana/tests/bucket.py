@@ -33,7 +33,11 @@ class BucketTest(unittest.TestCase):
 
     def test_list_all_shots(self):
         response    = self.bucket.list_shots()
-        print(response)
+        self.assertIs(type(response), list)
+
+    def test_list_all_shots_with_external_id(self):
+        response = self.bucket.list_shots(bucket_id=2755)
+        self.assertIs(type(response), list)
 
 if __name__ == "__main__":
     unittest.main()
