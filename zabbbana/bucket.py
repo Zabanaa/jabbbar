@@ -19,6 +19,12 @@ class Bucket(zbn):
         return response
 
     def update(self, bucket_id=None, name=None, description=None):
+
+        if bucket_id:
+            bucket_id = bucket_id
+        else:
+            bucket_id = self.bucket_id
+
         bucket_data     = {'name': name, 'description': description}
         update_bucket   = req.put("{}/buckets/{}".format(zbn.API_ENDPOINT, bucket_id), headers=self.auth_header,\
                                   data=bucket_data)
