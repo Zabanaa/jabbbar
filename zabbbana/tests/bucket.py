@@ -13,7 +13,12 @@ class BucketTest(unittest.TestCase):
         self.bucket = Bucket(jordan, 386137)
 
     def test_get_details(self):
+        # Without ID (the instance bucket)
         response = self.bucket.get_details()
+        self.assertIn('shots_count', response)
+
+        # With ID (another bucket)
+        response = self.bucket.get_details(bucket_id=EXTERNAL_BUCKET_ID)
         self.assertIn('shots_count', response)
 
     def test_create_bucket(self):
