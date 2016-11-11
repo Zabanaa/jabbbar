@@ -28,3 +28,19 @@ class Bucket(zbn):
     def delete(self, bucket_id=None):
         response  = req.delete("{}/buckets/{}".format(zbn.API_ENDPOINT, bucket_id), headers=self.auth_header)
         return response
+
+    def list_shots(self,bucket_id=None):
+        if bucket_id:
+            bucket_id = bucket_id
+        else:
+            bucket_id = self.bucket_id
+
+        shots_list = req.get("{}/buckets/{}/shots".format(zbn.API_ENDPOINT, bucket_id), headers=self.auth_header)
+        response   = shots_list.json()
+        return response
+
+
+
+
+
+
