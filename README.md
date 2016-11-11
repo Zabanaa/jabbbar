@@ -2,7 +2,7 @@
 
 Simple to use python wrapper for the Dribbble API.
 
-## Class Zabbbana
+## Class Zabbbana (DONE)
 
 ### Params
 
@@ -18,7 +18,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class Bucket
+## Class Bucket (DONE)
 
 ### Params
 
@@ -36,7 +36,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class Project
+## Class Project (DONE)
 
 ### Params
 
