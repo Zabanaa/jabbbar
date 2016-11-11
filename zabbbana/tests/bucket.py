@@ -24,13 +24,14 @@ class BucketTest(unittest.TestCase):
         self.bucket.delete(bucket_id=response['id']) # Immediately delete the created bucket to avoid bloat
 
     def test_update_bucket(self):
-        bucket_new_name = "bruv wagwan"
-        response        = self.bucket.update(bucket_id=BUCKET_TO_UPDATE, name=bucket_new_name)
-        self.assertEqual(bucket_new_name, response['name'])
-
-    def test_update_without_id(self):
+        # Without ID (the instance bucket)
         bucket_new_name = "Jobs board for python developers"
         response        = self.bucket.update(name=bucket_new_name)
+        self.assertEqual(bucket_new_name, response['name'])
+
+        # With ID (another bucket)
+        bucket_new_name = "bruv wagwan"
+        response        = self.bucket.update(bucket_id=BUCKET_TO_UPDATE, name=bucket_new_name)
         self.assertEqual(bucket_new_name, response['name'])
 
     def delete_bucket(self):
@@ -38,10 +39,11 @@ class BucketTest(unittest.TestCase):
         self.assertEqual(204, response.__dict__['status_code'])
 
     def test_list_all_shots(self):
+        # Without ID (the instance bucket)
         response    = self.bucket.list_shots()
         self.assertIs(type(response), list)
 
-    def test_list_all_shots_with_external_id(self):
+        # With Id (another bucket)
         response    = self.bucket.list_shots(bucket_id=EXTERNAL_BUCKET_ID)
         self.assertIs(type(response), list)
 
