@@ -10,7 +10,7 @@ my_bucket = Bucket(jordan, 2754)
 class BucketTest(unittest.TestCase):
 
     def setUp(self):
-        self.bucket = Bucket(jordan, 2754)
+        self.bucket = Bucket(jordan, 386137)
 
     def test_get_details(self):
         response = self.bucket.get_details()
@@ -36,8 +36,12 @@ class BucketTest(unittest.TestCase):
         self.assertIs(type(response), list)
 
     def test_list_all_shots_with_external_id(self):
-        response = self.bucket.list_shots(bucket_id=2755)
+        response    = self.bucket.list_shots(bucket_id=2755)
         self.assertIs(type(response), list)
+
+    def test_add_shot(self):
+        response    = self.bucket.add_shot(shot_id=471756)
+        self.assertEqual(204, response.__dict__['status_code'])
 
 if __name__ == "__main__":
     unittest.main()
