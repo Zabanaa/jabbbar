@@ -27,9 +27,12 @@ Simple to use python wrapper for the Dribbble API.
 ### methods
 
 - Bucket.get_details() // DONE
-- Bucket.getShots() // DONE
-- Bucket.addShot(id) // DONE
-- Bucket.deleteShot(id) // DONE
+- Bucket.create()   // DONE
+- Bucket.update()   // DONE
+- Bucket.delete()   // DONE
+- Bucket.list-shots() // DONE
+- Bucket.add_shot(id) // DONE
+- Bucket.delete_shot(id) // DONE
 
 ======================
 
@@ -41,8 +44,8 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Project.get_details()
-- Project.get_shots()
+- Project.get_details() // DONE
+- Project.get_shots()   // DONE
 
 ======================
 
