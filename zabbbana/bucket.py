@@ -48,3 +48,13 @@ class Bucket(zbn):
         push_shot = req.put("{}/buckets/{}/shots".format(zbn.API_ENDPOINT, self.bucket_id), headers=self.auth_header,\
                             data=shot_data)
         return push_shot
+
+    def remove_shot(self, shot_id=None):
+
+        """removes a shot to the current bucket, we don't return the json response so we can access the status code in the
+        headers"""
+
+        shot_data = {'shot_id': shot_id}
+        push_shot = req.delete("{}/buckets/{}/shots".format(zbn.API_ENDPOINT, self.bucket_id), headers=self.auth_header,\
+                            data=shot_data)
+        return push_shot
