@@ -49,7 +49,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class Shots
+## Class Shots (DONE)
 
 ### Params
 
@@ -57,8 +57,8 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Shots.list_all()
-- Shots.get_one(id)
+- Shots.list_all() // DONE
+- Shots.get_one(id) // DONE
 - Shots.create(id)
 - Shots.update(id)
 - Shots.delete(id)
