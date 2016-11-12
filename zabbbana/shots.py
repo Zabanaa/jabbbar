@@ -14,19 +14,35 @@ class Shots(zbn):
         )
 
     def list_all(self, params):
+
+        """ Retrieve a list of all uploaded shots on the site"""
+
         shots = req.get(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
         return shots.json()
 
     def get_one(self, shot_id):
+
+        """ Get details for a specific shot"""
+
         shot_info = req.get("{}/{}".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
         return shot_info.json()
 
     def upload(self, params):
+
+        """ Uploads a shot to the user's account (the user must be authenticated with the upload scope,
+        he/she also must be a drafted player"""
+
         upload_shot = req.post(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
         return upload_shot
 
-    def update(self, params):
+    def update(self, shot_id, params):
+
+        """ Update information about a shot"""
+
         pass
 
     def delete(self, shot_id):
+
+        """ Delete a specific shot"""
+
         pass
