@@ -15,3 +15,10 @@ def test_list_all():
 
     response = test_shots.list_all(DEFAULT_QUERY_PARAMS)
     assert isinstance(response, list)
+
+def test_get_one():
+    response = test_shots.get_one(DEFAULT_SHOT_ID)
+    assert response['id'] == DEFAULT_SHOT_ID
+
+    response = test_shots.get_one(1209392210321321)
+    assert 'Not found.' in response['message']

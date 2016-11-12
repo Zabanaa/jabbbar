@@ -16,3 +16,8 @@ class Shots(zbn):
     def list_all(self, params):
         shots = req.get(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
         return shots.json()
+
+    def get_one(self, shot_id):
+        shot_info = req.get("{}/{}".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
+        return shot_info.json()
+
