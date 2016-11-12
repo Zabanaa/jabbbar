@@ -21,3 +21,8 @@ class Shots(zbn):
         shot_info = req.get("{}/{}".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
         return shot_info.json()
 
+    def upload(self, params, shot_data, shot_content_type):
+        shot_data   = {'image': ('image', shot_data, shot_content_type)}
+        upload_shot = req.post(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
+        return upload_shot()
+
