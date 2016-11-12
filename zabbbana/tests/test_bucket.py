@@ -59,6 +59,3 @@ class BucketTest(unittest.TestCase):
     def test_remove_shot(self):
         response    = self.bucket.remove_shot(shot_id=DEFAULT_SHOT_ID)
         self.assertEqual(204, response.__dict__['status_code'])
-
-if __name__ == "__main__":
-    unittest.main()

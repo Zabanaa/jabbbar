@@ -22,6 +22,3 @@ class ProjectTest(unittest.TestCase):
 
         respone = self.project.get_shots(project_id=4)
         self.assertIs(type(response), list)
-
-if __name__ == "__main__":
-    unittest.main()

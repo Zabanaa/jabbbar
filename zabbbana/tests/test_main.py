@@ -16,6 +16,3 @@ class BaseTest(unittest.TestCase):
                         .format(self.api.client_id, self.api.redirect_uri, self.api.scope, self.api.state)
         auth_url     = self.api.generate_auth_url
         self.assertEqual(auth_url, expected_url)
-
-if __name__ == "__main__":
-    unittest.main()
