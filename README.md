@@ -57,11 +57,11 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Shots.list_all() // DONE
+- Shots.list_all()  // DONE
 - Shots.get_one(id) // DONE
-- Shots.create(id)
-- Shots.update(id)
-- Shots.delete(id)
+- Shots.create(id)  // NEED A PLAYER ACCOUNT
+- Shots.update(id)  // NEED A PLAYER ACCOUNT
+- Shots.delete(id)  // NEED A PLAYER ACCOUNT
 
 ======================
 
@@ -141,3 +141,14 @@ Simple to use python wrapper for the Dribbble API.
 - User.create_bucket()
 - User.delete_bucket()
 - User.update_bucket()
+
+=======================
+
+
+## Todo
+
+_Need a player account_
+- [ ] Shot.upload
+- [ ] Shot.update
+- [ ] Shot.delete
+
