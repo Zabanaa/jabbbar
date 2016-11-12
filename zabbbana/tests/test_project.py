@@ -1,24 +1,18 @@
-import unittest
-from zabbbana import Zabbbana
 from zabbbana.project import Project
-from zabbbana.tests import jordan
+from . import jordan
 
-class ProjectTest(unittest.TestCase):
+test_project = Project(jordan,3)
 
-    def setUp(self):
-        self.project = Project(jordan,3)
+def test_get_details():
+    response = test_project.get_details()
+    assert response['id'] == test_project.project_id
 
-    def test_get_details(self):
-        response = self.project.get_details()
-        self.assertEqual(response['id'], self.project.project_id)
+    response = test_project.get_details(project_id=4)
+    assert response['id'] == 4
 
-        response = self.project.get_details(project_id=4)
-        self.assertEqual(response['id'], 4)
+def test_get_shots():
+    response = test_project.get_shots()
+    assert isinstance(response, list)
 
-    def test_get_shots(self):
-
-        response = self.project.get_shots()
-        self.assertIs(type(response), list)
-
-        respone = self.project.get_shots(project_id=4)
-        self.assertIs(type(response), list)
+    respone = test_project.get_shots(project_id=4)
+    assert isinstance(response, list)
