@@ -10,6 +10,15 @@ DEFAULT_QUERY_PARAMS = {
     'date': '20151121',
     'sort': 'comments'
 }
+DEFAULT_UPLOAD_PARAMS = {
+    'title': 'Bruv new shot",
+    'image': path_to_image,
+    'description': 'Testing shot uploading on this ting',
+    'tags': ['mad ting'],
+    'team_id': None,
+    'rebound_source_id': None
+
+}
 
 def test_list_all():
 
