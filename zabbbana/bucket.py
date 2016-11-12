@@ -14,12 +14,7 @@ class Bucket(zbn):
         """ Retrieves information about either the current Bucket (if no bucket_id is passed)
             or the one that matches the passed bucket_id
         """
-
-        if bucket_id:
-            bucket_id = bucket_id
-        else:
-            bucket_id = self.bucket_id
-
+        bucket_id = bucket_id or self.bucket_id
         bucket_request = req.get("{}/{}".format(self.MAIN_ENDPOINT, bucket_id), headers=self.auth_header)
         details = bucket_request.json()
         return details
@@ -39,11 +34,7 @@ class Bucket(zbn):
             Please note that the user must own the bucket to update it
         """
 
-        if bucket_id:
-            bucket_id = bucket_id
-        else:
-            bucket_id = self.bucket_id
-
+        bucket_id       = bucket_id or self.bucket_id
         bucket_data     = {'name': name, 'description': description}
         update_bucket   = req.put("{}/{}".format(self.MAIN_ENDPOINT, bucket_id), headers=self.auth_header, data=bucket_data)
         response        = update_bucket.json()
@@ -54,11 +45,7 @@ class Bucket(zbn):
         """ Deletes the current bucket or the one that matches the passed bucket_id
             Please note that the user must own the bucket to delete it
         """
-        if bucket_id:
-            bucket_id = bucket_id
-        else:
-            bucket_id = self.bucket_id
-
+        bucket_id = bucket_id or self.bucket_id
         response  = req.delete("{}/{}".format(self.MAIN_ENDPOINT, bucket_id), headers=self.auth_header)
         return response
 
@@ -66,11 +53,7 @@ class Bucket(zbn):
 
         """ Lists all the shots within a the current (or designated) bucket """
 
-        if bucket_id:
-            bucket_id = bucket_id
-        else:
-            bucket_id = self.bucket_id
-
+        bucket_id  = bucket_id or self.bucket_id
         shots_list = req.get("{}/{}/shots".format(self.MAIN_ENDPOINT, bucket_id), headers=self.auth_header)
         response   = shots_list.json()
         return response
