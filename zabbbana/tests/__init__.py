@@ -1,11 +1,9 @@
-import os
 from zabbbana import Zabbbana
 from .credentials import *
 
 jordan = Zabbbana(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN, state="myrandomkey",\
                   redirect_uri=REDIRECT_URI)
 
-PATH_TO_IMG = os.path.dirname(__file__)
 
 def test_generate_auth_url():
     print(PATH_TO_IMG)
