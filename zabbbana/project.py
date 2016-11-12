@@ -10,22 +10,18 @@ class Project(zbn):
 
     def get_details(self, project_id=None):
 
-        if project_id:
-            project_id = project_id
-        else:
-            project_id = self.project_id
+        """ Get information about a specific project"""
 
+        project_id = project_id if project_id is not None else self.project_id
         project_details = req.get("{}/{}".format(self.MAIN_ENDPOINT, project_id), headers=self.auth_header)
         response        = project_details.json()
         return response
 
     def get_shots(self, project_id=None):
 
-        if project_id:
-            project_id = project_id
-        else:
-            project_id = self.project_id
+        """ Retrieves a list of all shots that are part of this project"""
 
+        project_id = project_id if project_id is not None else self.project_id
         shots    = req.get("{}/{}/shots".format(self.MAIN_ENDPOINT, project_id), headers=self.auth_header)
         response = shots.json()
         return response
