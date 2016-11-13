@@ -91,7 +91,10 @@ def test_like_comment():
     assert 'created_at' in response
 
 def test_unlike_comment():
-    pass
+    like            = test_shot.like_comment(3991757)
+    unlike          = test_shot.unlike_comment(3991757)
+    status_code     = unlike.__dict__['status_code']
+    assert status_code == 204
 
 def test_list_likes():
     pass

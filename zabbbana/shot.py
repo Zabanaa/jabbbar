@@ -54,13 +54,19 @@ class Shot(zbn):
         return result
 
     def like_comment(self, comment_id, shot_id=None):
+        """ requires write scope """
         shot_id                 = shot_id if shot_id is not None else self.shot_id
         endpoint                = "{}/{}/comments/{}/like".format(self.MAIN_ENDPOINT, shot_id, comment_id)
         like                    = req.post(endpoint, headers=self.auth_header)
         return like.json()
 
-    # like_comment (write scope)
-    # unlike_comment (write scope)
+    def unlike_comment(self, comment_id, shot_id=None):
+        """ requires write scope """
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/comments/{}/like".format(self.MAIN_ENDPOINT, shot_id, comment_id)
+        unlike                    = req.delete(endpoint, headers=self.auth_header)
+        return unlike
+
     # list_likes
     # check_user_likes_shot
     # like
