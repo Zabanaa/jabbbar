@@ -65,7 +65,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class Shot
+## Class Shot (DONE)
 
 ### Params
 
@@ -73,25 +73,21 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Shot.get_attachements()
-- Shot.create_attachement()
-- Shot.get_single_attachement()
-- Shot.delete_attachement()
-- Shot.get_bucket_list()
-- Shot.get_comments()
-- Shot.get_comment_likes()
-- Shot.get_single_comment()
-- Shot.update_comment()
-- Shot.delete_comment()
-- Shot.do_I_like_a_comment()
-- Shot.like_comment()
-- Shot.unlike_comment()
-- Shot.get_likes()
-- Shot.do_I_like_a_shot()
-- Shot.like()
-- Shot.unlike()
-- Shot.list_all_projects()
-- Shot.get_rebounds()
+- Shot.get_attachements()           // DONE
+- Shot.get_single_attachement()     // DONE
+- Shot.get_bucket_list()            // DONE
+- Shot.get_comments()               // DONE
+- Shot.get_comment_likes()          // DONE
+- Shot.get_single_comment()         // DONE
+- Shot.do_I_like_a_comment()        // DONE
+- Shot.like_comment()               // DONE
+- Shot.unlike_comment()             // DONE
+- Shot.get_likes()                  // DONE
+- Shot.do_I_like_a_shot()           // DONE
+- Shot.like()                       // DONE
+- Shot.unlike()                     // DONE
+- Shot.list_all_projects()          // DONE
+- Shot.get_rebounds()               //DONE
 
 
 ======================
@@ -129,7 +125,6 @@ Simple to use python wrapper for the Dribbble API.
 - User.unfollow_player()
 - User.get_my_likes()
 - User.get_likes()
-
 - User.list_my_projects()
 - User.list_projects()
 - User.list_my_shots()
@@ -138,12 +133,13 @@ Simple to use python wrapper for the Dribbble API.
 - User.list_shots()
 - User.list_my_teams()
 - User.list_teams()
+
+// Possibly not
 - User.create_bucket()
 - User.delete_bucket()
 - User.update_bucket()
 
 =======================
-
 
 ## Todo
 
