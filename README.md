@@ -148,7 +148,12 @@ Simple to use python wrapper for the Dribbble API.
 ## Todo
 
 _Need a player account_
-- [ ] Shot.upload
-- [ ] Shot.update
-- [ ] Shot.delete
+- [ ] Shots.upload
+- [ ] Shots.update
+- [ ] Shots.delete
 
+- [ ] Shot.create_attachement
+- [ ] Shot.delete_comment
+- [ ] Shot.create_comment
+- [ ] Shot.update_comment
+- [ ] Shot.delete_comment
