@@ -2,6 +2,7 @@ from zabbbana.shot import Shot
 from . import jordan
 
 DEFAULT_SHOT_ID = 1757843
+DEFAULT_ATTACHEMENT_ID = 285772
 test_shot = Shot(jordan, DEFAULT_SHOT_ID)
 
 def test_list_attachements():
@@ -10,7 +11,8 @@ def test_list_attachements():
     assert 'thumbnail_url' in attachement_object
 
 def test_get_attachement():
-    pass
+    response            = test_shot.get_attachement(DEFAULT_ATTACHEMENT_ID)
+    assert 'thumbnail_url' in response
 
 def test_list_buckets():
     pass
