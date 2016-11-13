@@ -92,7 +92,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class Teams
+## Class Teams (DONE)
 
 ### Params
 
@@ -100,8 +100,8 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- Team.get_players()
-- Team.get_shots()
+- Team.get_players()            // DONE
+- Team.get_shots()              // DONE
 
 ======================
 
