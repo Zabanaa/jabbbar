@@ -35,6 +35,11 @@ class Shot(zbn):
         comments            = req.get(endpoint, headers=self.auth_header)
         return comments.json()
 
+    def list_comment_likes(self, comment_id, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/comments/{}/likes".format(self.MAIN_ENDPOINT, shot_id, comment_id)
+        comment_likes           = req.get(endpoint, headers=self.auth_header)
+        return comment_likes.json()
     # list_likes
     # get_comment
     # check_user_likes_comment
