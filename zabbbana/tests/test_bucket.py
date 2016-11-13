@@ -1,11 +1,12 @@
 from zabbbana.bucket import Bucket
 from . import jordan
 
-EXTERNAL_BUCKET_ID = 2755
-BUCKET_TO_UPDATE   = 442480
+EXTERNAL_BUCKET_ID  = 2755
+BUCKET_TO_UPDATE    = 442480
 DEFAULT_SHOT_ID     = 471756
+DEFAULT_BUCKET_ID   = 386137
 
-test_bucket = Bucket(jordan, 386137)
+test_bucket = Bucket(jordan, DEFAULT_BUCKET_ID)
 
 def test_get_details():
     # Without ID (the instance bucket)

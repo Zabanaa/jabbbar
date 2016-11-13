@@ -1,7 +1,9 @@
 from zabbbana.project import Project
 from . import jordan
 
-test_project = Project(jordan,3)
+DEFAULT_PROJECT_ID = 3
+
+test_project = Project(jordan, DEFAULT_PROJECT_ID)
 
 def test_get_details():
     response = test_project.get_details()
@@ -14,5 +16,5 @@ def test_get_shots():
     response = test_project.get_shots()
     assert isinstance(response, list)
 
-    respone = test_project.get_shots(project_id=4)
+    response = test_project.get_shots(project_id=4)
     assert isinstance(response, list)
