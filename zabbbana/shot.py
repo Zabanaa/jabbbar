@@ -40,7 +40,14 @@ class Shot(zbn):
         endpoint                = "{}/{}/comments/{}/likes".format(self.MAIN_ENDPOINT, shot_id, comment_id)
         comment_likes           = req.get(endpoint, headers=self.auth_header)
         return comment_likes.json()
-    # list_likes
+
+    def get_comment(self, comment_id, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/comments/{}".format(self.MAIN_ENDPOINT, shot_id, comment_id)
+        comment                 = req.get(endpoint, headers=self.auth_header)
+        return comment.json()
+
+
     # get_comment
     # check_user_likes_comment
     # like_comment (write scope)
