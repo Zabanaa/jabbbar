@@ -12,7 +12,7 @@ class Shot(zbn):
     def list_attachments(self, shot_id=None):
 
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        endpoint            = "{}/{}/attachments".format(self.MAIN_ENDPOINY, shot_id)
+        endpoint            = "{}/{}/attachments".format(self.MAIN_ENDPOINT, shot_id)
         attachments         = req.get(endpoint, headers=self.auth_header)
         return attachments.json()
 
@@ -29,7 +29,12 @@ class Shot(zbn):
         buckets             = req.get(endpoint, headers=self.auth_header)
         return buckets.json()
 
-    # list_comments
+    def list_comments(self, shot_id=None):
+        shot_id             = shot_id if shot_id is not None else self.shot_id
+        endpoint            = "{}/{}/comments".format(self.MAIN_ENDPOINT, shot_id)
+        comments            = req.get(endpoint, headers=self.auth_header)
+        return comments.json()
+
     # list_likes
     # get_comment
     # check_user_likes_comment
