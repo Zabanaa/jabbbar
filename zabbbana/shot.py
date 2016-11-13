@@ -15,6 +15,13 @@ class Shot(zbn):
         attachements        = req.get("{}/{}/attachments".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
         return attachements.json()
 
+    def get_attachement(self, attachement_id, shot_id=None):
+
+        shot_id             = shot_id if shot_id is not None else self.shot_id
+        endpoint            = "{}/{}/attachments/{}".format(self.MAIN_ENDPOINT, shot_id, attachement_id)
+        attachement         = req.get(endpoint, headers=self.auth_header)
+        return attachement.json()
+
 
     # get_attachement
     # list_buckets
