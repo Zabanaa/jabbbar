@@ -1,11 +1,13 @@
 from zabbbana.shot import Shot
 from . import jordan
 
-DEFAULT_SHOT_ID = 334543
+DEFAULT_SHOT_ID = 1757843
 test_shot = Shot(jordan, DEFAULT_SHOT_ID)
 
 def test_list_attachements():
-    pass
+    response            = test_shot.list_attachements()
+    attachement_object  = response[0]
+    assert 'thumbnail_url' in attachement_object
 
 def test_get_attachement():
     pass
