@@ -147,15 +147,19 @@ def test_list_projects():
 def test_list_rebounds():
     # List rebounds for the instanciated Shot
     response            = test_shot.list_rebounds()
-    first_rebound       = response[0]
     assert isinstance(response, list)
-    assert 'id' in first_rebound
 
     # List rebounds for an external shot
     response            = test_shot.list_rebounds(shot_id=EXTERNAL_SHOT_ID)
-    first_rebound       = response[0]
     assert isinstance(response, list)
-    assert 'id' in first_rebound
 
-def test_list_rebounds():
-    pass
+def test_check_user_likes_shot():
+    # If the current user likes the shot it should return 200 along with an object
+    response            = test_shot.check_user_likes_shot()
+    status_code         = response.__dict__['status_code']
+    assert status_code == 200
+
+    # If the current user does not like
+    response            = test_shot.check_user_likes_shot(shot_id=EXTERNAL_SHOT_ID)
+    status_code         = response.__dict__['status_code']
+    assert status_code == 404

@@ -98,3 +98,9 @@ class Shot(zbn):
         endpoint                = "{}/{}/rebounds".format(self.MAIN_ENDPOINT, shot_id)
         projects                = req.get(endpoint, headers=self.auth_header)
         return projects.json()
+
+    def check_user_likes_shot(self, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/like".format(self.MAIN_ENDPOINT, shot_id)
+        like_shot               = req.get(endpoint, headers=self.auth_header)
+        return like_shot
