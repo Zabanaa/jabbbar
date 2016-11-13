@@ -73,9 +73,20 @@ class Shot(zbn):
         shot_likes              = req.get(endpoint, headers=self.auth_header)
         return shot_likes.json()
 
-    # check_user_likes_shot
-    # like
-    # unlike
+    def like(self, shot_id=None):
+        """ requires write scope """
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/like".format(self.MAIN_ENDPOINT, shot_id)
+        like                    = req.post(endpoint, headers=self.auth_header)
+        return like.json()
+
+    def unlike(self, shot_id=None):
+        """ requires write scope """
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/like".format(self.MAIN_ENDPOINT, shot_id)
+        unlike                  = req.delete(endpoint, headers=self.auth_header)
+        return unlike
+
     # list_projects
     # list_rebounds
 

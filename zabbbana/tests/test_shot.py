@@ -111,10 +111,19 @@ def test_check_user_likes_shot():
     pass
 
 def test_like_shot():
-    pass
+    # Add like to the instanciated shot
+    response            = test_shot.like()
+    assert 'created_at' in response
+
+    # Add like to an external shot
+    response            = test_shot.like(shot_id=EXTERNAL_SHOT_ID)
+    assert 'created_at' in response
 
 def test_unlike_shot():
-    pass
+    like                = test_shot.like(shot_id=EXTERNAL_SHOT_ID)
+    unlike              = test_shot.unlike(shot_id=EXTERNAL_SHOT_ID)
+    status_code         = unlike.__dict__['status_code']
+    assert status_code == 204
 
 def test_list_projects():
     pass
