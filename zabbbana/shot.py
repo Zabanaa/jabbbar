@@ -9,18 +9,18 @@ class Shot(zbn):
         zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
         self.shot_id = shot_id
 
-    def list_attachements(self, shot_id=None):
+    def list_attachments(self, shot_id=None):
 
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        attachements        = req.get("{}/{}/attachments".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
-        return attachements.json()
+        attachments        = req.get("{}/{}/attachments".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
+        return attachments.json()
 
-    def get_attachement(self, attachement_id, shot_id=None):
+    def get_attachment(self, attachment_id, shot_id=None):
 
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        endpoint            = "{}/{}/attachments/{}".format(self.MAIN_ENDPOINT, shot_id, attachement_id)
-        attachement         = req.get(endpoint, headers=self.auth_header)
-        return attachement.json()
+        endpoint            = "{}/{}/attachments/{}".format(self.MAIN_ENDPOINT, shot_id, attachment_id)
+        attachment         = req.get(endpoint, headers=self.auth_header)
+        return attachment.json()
 
 
     # get_attachement
