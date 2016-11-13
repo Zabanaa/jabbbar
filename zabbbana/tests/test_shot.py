@@ -91,13 +91,21 @@ def test_like_comment():
     assert 'created_at' in response
 
 def test_unlike_comment():
-    like            = test_shot.like_comment(3991757)
-    unlike          = test_shot.unlike_comment(3991757)
-    status_code     = unlike.__dict__['status_code']
+    like                = test_shot.like_comment(3991757)
+    unlike              = test_shot.unlike_comment(3991757)
+    status_code         = unlike.__dict__['status_code']
     assert status_code == 204
 
 def test_list_likes():
-    pass
+    # List all the likes for the instanciated shot
+    response            = test_shot.list_likes()
+    first_like          = response[0]
+    assert 'id' in first_like
+
+    # List all the likes for an external shot
+    response            = test_shot.list_likes(shot_id=EXTERNAL_SHOT_ID)
+    first_like          = response[0]
+    assert 'id' in first_like
 
 def test_check_user_likes_shot():
     pass

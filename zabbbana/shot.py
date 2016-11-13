@@ -67,7 +67,12 @@ class Shot(zbn):
         unlike                    = req.delete(endpoint, headers=self.auth_header)
         return unlike
 
-    # list_likes
+    def list_likes(self, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/likes".format(self.MAIN_ENDPOINT, shot_id)
+        shot_likes              = req.get(endpoint, headers=self.auth_header)
+        return shot_likes.json()
+
     # check_user_likes_shot
     # like
     # unlike
