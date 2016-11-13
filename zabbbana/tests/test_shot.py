@@ -24,7 +24,10 @@ def test_get_attachment():
     assert 'thumbnail_url' in response
 
 def test_list_buckets():
-    pass
+    response            = test_shot.list_buckets()
+    first_bucket        = response[0]
+    assert 'name' in first_bucket
+
 
 def test_list_comments():
     pass
