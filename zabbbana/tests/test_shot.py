@@ -2,6 +2,7 @@ from zabbbana.shot import Shot
 from . import jordan
 
 DEFAULT_SHOT_ID = 1757843
+EXTERNAL_SHOT_ID = 3064133
 DEFAULT_ATTACHEMENT_ID = 285772
 test_shot = Shot(jordan, DEFAULT_SHOT_ID)
 
@@ -17,20 +18,35 @@ def test_list_attachments():
     assert 'thumbnail_url' in attachment_object
 
 def test_get_attachment():
+    # Without ID (Default ID)
     response            = test_shot.get_attachment(DEFAULT_ATTACHEMENT_ID)
     assert 'thumbnail_url' in response
 
-    response            = test_shot.get_attachment(644444, shot_id=3064133)
+    # With ID
+    response            = test_shot.get_attachment(644444, shot_id=EXTERNAL_SHOT_ID)
     assert 'thumbnail_url' in response
 
 def test_list_buckets():
+    # Without ID (Default ID)
     response            = test_shot.list_buckets()
     first_bucket        = response[0]
     assert 'name' in first_bucket
 
+    # With ID
+    response            = test_shot.list_buckets(shot_id=EXTERNAL_SHOT_ID)
+    first_bucket        = response[0]
+    assert 'name' in first_bucket
 
 def test_list_comments():
-    pass
+    # Without ID (Default ID)
+    response            = test_shot.list_comments()
+    first_comment       = response[0]
+    assert 'body' in first_comment
+
+    # With ID
+    response            = test_shot.list_comments(shot_id=EXTERNAL_SHOT_ID)
+    first_comment       = response[0]
+    assert 'body' in first_comment
 
 def test_list_likes():
     pass
