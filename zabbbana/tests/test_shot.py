@@ -62,7 +62,13 @@ def test_comment_likes():
     assert 'id' in first_comment_like
 
 def test_get_comment():
-    pass
+    # Without ID (Default ID)
+    response            = test_shot.get_comment(DEFAULT_COMMENT_ID)
+    assert 'created_at' in response
+
+    # With ID
+    response            = test_shot.get_comment(EXTERNAL_COMMENT_ID, shot_id=EXTERNAL_SHOT_ID)
+    assert 'created_at' in response
 
 def test_check_user_likes_comment():
     pass
