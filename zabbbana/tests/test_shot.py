@@ -1,9 +1,11 @@
 from zabbbana.shot import Shot
 from . import jordan
 
-DEFAULT_SHOT_ID = 1757843
-EXTERNAL_SHOT_ID = 3064133
-DEFAULT_ATTACHEMENT_ID = 285772
+DEFAULT_SHOT_ID            = 1757843
+DEFAULT_COMMENT_ID         = 3991565
+EXTERNAL_SHOT_ID           = 3064133
+EXTERNAL_COMMENT_ID        = 5690090
+DEFAULT_ATTACHEMENT_ID     = 285772
 test_shot = Shot(jordan, DEFAULT_SHOT_ID)
 
 def test_list_attachments():
@@ -48,8 +50,16 @@ def test_list_comments():
     first_comment       = response[0]
     assert 'body' in first_comment
 
-def test_list_likes():
-    pass
+def test_comment_likes():
+    # Without ID (Default ID)
+    response            = test_shot.list_comment_likes(DEFAULT_COMMENT_ID)
+    first_comment_like  = response[0]
+    assert 'id' in first_comment_like
+
+    # With ID
+    response            = test_shot.list_comment_likes(EXTERNAL_COMMENT_ID, shot_id=EXTERNAL_SHOT_ID)
+    first_comment_like  = response[0]
+    assert 'id' in first_comment_like
 
 def test_get_comment():
     pass
