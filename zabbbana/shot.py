@@ -9,5 +9,19 @@ class Shot(zbn):
         zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
         self.shot_id = shot_id
 
-
+    # list_attachements
+    # get_attachement
+    # list_buckets
+    # list_comments
+    # list_likes
+    # get_comment
+    # check_user_likes_comment
+    # like_comment (write scope)
+    # unlike_comment (write scope)
+    # list_likes
+    # check_user_likes_shot
+    # like
+    # unlike
+    # list_projects
+    # list_rebounds
 
