@@ -12,11 +12,13 @@ def test_list_attachments():
     # List attachements for the instanciated shot
     response            = test_shot.list_attachments()
     attachment_object  = response[0]
+    assert isinstance(response, list)
     assert 'thumbnail_url' in attachment_object
 
     # List attachements for an external shot
     response            = test_shot.list_attachments(shot_id=3085980)
     attachment_object  = response[0]
+    assert isinstance(response, list)
     assert 'thumbnail_url' in attachment_object
 
 def test_get_attachment():
@@ -32,33 +34,39 @@ def test_list_buckets():
     # List buckets for the instance shot
     response            = test_shot.list_buckets()
     first_bucket        = response[0]
+    assert isinstance(response, list)
     assert 'name' in first_bucket
 
     # List buckets for an external shot
     response            = test_shot.list_buckets(shot_id=EXTERNAL_SHOT_ID)
     first_bucket        = response[0]
+    assert isinstance(response, list)
     assert 'name' in first_bucket
 
 def test_list_comments():
     # List all the comments for the instanciated shot
     response            = test_shot.list_comments()
     first_comment       = response[0]
+    assert isinstance(response, list)
     assert 'body' in first_comment
 
     # List all the comments for an external shot
     response            = test_shot.list_comments(shot_id=EXTERNAL_SHOT_ID)
     first_comment       = response[0]
+    assert isinstance(response, list)
     assert 'body' in first_comment
 
 def test_comment_likes():
     # List comment likes for a comment in the instance shot
     response            = test_shot.list_comment_likes(DEFAULT_COMMENT_ID)
     first_comment_like  = response[0]
+    assert isinstance(response, list)
     assert 'id' in first_comment_like
 
     # List comment likes for a comment in an external shot
     response            = test_shot.list_comment_likes(EXTERNAL_COMMENT_ID, shot_id=EXTERNAL_SHOT_ID)
     first_comment_like  = response[0]
+    assert isinstance(response, list)
     assert 'id' in first_comment_like
 
 def test_get_comment():
@@ -100,11 +108,13 @@ def test_list_likes():
     # List all the likes for the instanciated shot
     response            = test_shot.list_likes()
     first_like          = response[0]
+    assert isinstance(response, list)
     assert 'id' in first_like
 
     # List all the likes for an external shot
     response            = test_shot.list_likes(shot_id=EXTERNAL_SHOT_ID)
     first_like          = response[0]
+    assert isinstance(response, list)
     assert 'id' in first_like
 
 def test_check_user_likes_shot():
@@ -126,7 +136,26 @@ def test_unlike_shot():
     assert status_code == 204
 
 def test_list_projects():
-    pass
+    # List projects for the instanciated Shot
+    response            = test_shot.list_projects()
+    assert isinstance(response, list)
+
+    # List projects for an external shot
+    response            = test_shot.list_projects(shot_id=EXTERNAL_SHOT_ID)
+    assert isinstance(response, list)
+
+def test_list_rebounds():
+    # List rebounds for the instanciated Shot
+    response            = test_shot.list_rebounds()
+    first_rebound       = response[0]
+    assert isinstance(response, list)
+    assert 'id' in first_rebound
+
+    # List rebounds for an external shot
+    response            = test_shot.list_rebounds(shot_id=EXTERNAL_SHOT_ID)
+    first_rebound       = response[0]
+    assert isinstance(response, list)
+    assert 'id' in first_rebound
 
 def test_list_rebounds():
     pass

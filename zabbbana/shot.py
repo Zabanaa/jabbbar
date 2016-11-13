@@ -87,6 +87,14 @@ class Shot(zbn):
         unlike                  = req.delete(endpoint, headers=self.auth_header)
         return unlike
 
-    # list_projects
-    # list_rebounds
+    def list_projects(self, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/projects".format(self.MAIN_ENDPOINT, shot_id)
+        projects                = req.get(endpoint, headers=self.auth_header)
+        return projects.json()
 
+    def list_rebounds(self, shot_id=None):
+        shot_id                 = shot_id if shot_id is not None else self.shot_id
+        endpoint                = "{}/{}/rebounds".format(self.MAIN_ENDPOINT, shot_id)
+        projects                = req.get(endpoint, headers=self.auth_header)
+        return projects.json()
