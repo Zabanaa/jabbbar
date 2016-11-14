@@ -36,7 +36,7 @@ def test_get_one():
 def test_upload_shot():
 
     response = test_shots.upload(DEFAULT_UPLOAD_PARAMS)
-    print(response)
+    pass
 
 def test_update_shot():
     pass
