@@ -22,7 +22,7 @@ class Bucket():
         """
 
         bucket_data     = {'name': name, 'description': description}
-        post_bucket     = self.client.post("/buckets", bucket_data)
+        post_bucket     = self.client.post("/buckets", data=bucket_data)
         return post_bucket.json()
 
     def update(self, bucket_id=None, name=None, description=None):
@@ -34,7 +34,7 @@ class Bucket():
 
         bucket_id = bucket_id if bucket_id is not None else self.bucket_id
         bucket_data     = {'name': name, 'description': description}
-        update_bucket   = self.client.put("/buckets/{}".format(bucket_id), bucket_data)
+        update_bucket   = self.client.put("/buckets/{}".format(bucket_id), data=bucket_data)
         return update_bucket.json()
 
     def delete(self, bucket_id=None):
@@ -66,7 +66,7 @@ class Bucket():
         """
 
         shot_data                = {'shot_id': shot_id}
-        new_shot_response        = self.client.put("/buckets/{}/shots".format(self.bucket_id), shot_data)
+        new_shot_response        = self.client.put("/buckets/{}/shots".format(self.bucket_id), data=shot_data)
         return new_shot_response
 
     def remove_shot(self, shot_id):
