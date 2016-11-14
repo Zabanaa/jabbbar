@@ -12,16 +12,16 @@ class Project(zbn):
 
         """ Get information about a specific project"""
 
-        project_id = project_id if project_id is not None else self.project_id
-        project_details = req.get("{}/{}".format(self.MAIN_ENDPOINT, project_id), headers=self.auth_header)
-        response        = project_details.json()
-        return response
+        project_id      = project_id if project_id is not None else self.project_id
+        endpoint        = "{}/{}".format(self.MAIN_ENDPOINT, project_id)
+        project_details = req.get(endpoint, headers=self.auth_header)
+        return project_details.json()
 
     def get_shots(self, project_id=None):
 
         """ Retrieves a list of all shots that are part of this project"""
 
-        project_id = project_id if project_id is not None else self.project_id
-        shots    = req.get("{}/{}/shots".format(self.MAIN_ENDPOINT, project_id), headers=self.auth_header)
-        response = shots.json()
-        return response
+        project_id      = project_id if project_id is not None else self.project_id
+        endpoint        = "{}/{}/shots".format(self.MAIN_ENDPOINT, project_id)
+        shots           = req.get(endpoint, headers=self.auth_header)
+        return shots.json()

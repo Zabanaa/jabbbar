@@ -24,7 +24,8 @@ class Shots(zbn):
 
         """ Get details for a specific shot"""
 
-        shot_info = req.get("{}/{}".format(self.MAIN_ENDPOINT, shot_id), headers=self.auth_header)
+        endpoint    = "{}/{}".format(self.MAIN_ENDPOINT, shot_id)
+        shot_info   = req.get(endpoint, headers=self.auth_header)
         return shot_info.json()
 
     def upload(self, params):
