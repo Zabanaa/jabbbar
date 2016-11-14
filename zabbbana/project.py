@@ -1,11 +1,7 @@
-from zabbbana import Zabbbana as zbn
-import requests as req
+class Project():
 
-class Project(zbn):
-    MAIN_ENDPOINT = "{}/projects".format(zbn.API_ENDPOINT)
-
-    def __init__(self, inst, project_id):
-        zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
+    def __init__(self, client, project_id):
+        self.client     = client
         self.project_id = project_id
 
     def get_details(self, project_id=None):
@@ -16,8 +12,7 @@ class Project(zbn):
         """
 
         project_id      = project_id if project_id is not None else self.project_id
-        endpoint        = "{}/{}".format(self.MAIN_ENDPOINT, project_id)
-        project_details = req.get(endpoint, headers=self.auth_header)
+        project_details = self.client.get("/projects/{}".format(project_id))
         return project_details.json()
 
     def get_shots(self, project_id=None):
@@ -28,6 +23,5 @@ class Project(zbn):
         """
 
         project_id      = project_id if project_id is not None else self.project_id
-        endpoint        = "{}/{}/shots".format(self.MAIN_ENDPOINT, project_id)
-        shots           = req.get(endpoint, headers=self.auth_header)
+        shots           = self.client.get("/projects/{}/shots".format(project_id))
         return shots.json()
