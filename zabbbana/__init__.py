@@ -48,11 +48,11 @@ class Zabbbana(object):
         url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
         return req.get(url, headers=self.auth_header)
 
-    def post(self, resource_endpoint, data):
+    def post(self, resource_endpoint, data=None):
         url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
         return req.post(url, headers=self.auth_header, data=data)
 
-    def put(self, resource_endpoint, data):
+    def put(self, resource_endpoint, data=None):
         url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
         return req.put(url, headers=self.auth_header, data=data)
 
