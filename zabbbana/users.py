@@ -21,5 +21,9 @@ class User(zbn):
     # list shots for authed user
     # list teams
     # list teams for authed user
-    # do the followers thing as well
-
+    # list followers
+    # list following
+    # list following shots
+    # check_user_is_following (optional user id, if passed then check if that user is following the target user)
+    # follow
+    # unfollow
