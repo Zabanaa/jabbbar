@@ -1,5 +1,12 @@
 # Zabbbana
 
+Things I learned
+
+- The OAuth authentication flow
+- Nosetests and how to use the framework
+- How to correctly document code
+- Composition vs Inheritance ("has a/uses a" vs "is a")
+
 Simple to use python wrapper for the Dribbble API.
 
 ## Class Zabbbana (DONE)
