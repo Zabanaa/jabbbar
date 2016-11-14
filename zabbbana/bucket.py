@@ -1,12 +1,7 @@
-from zabbbana import Zabbbana as zbn
-import requests as req
+class Bucket():
 
-class Bucket(zbn):
-
-    MAIN_ENDPOINT = "{}/buckets".format(zbn.API_ENDPOINT)
-
-    def __init__(self, inst, bucket_id):
-        zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
+    def __init__(self, client, bucket_id=None):
+        self.client = client
         self.bucket_id = bucket_id
 
     def get_details(self, bucket_id=None):
@@ -16,8 +11,7 @@ class Bucket(zbn):
             http://developer.dribbble.com/v1/buckets/#get-a-bucket
         """
         bucket_id   = bucket_id if bucket_id is not None else self.bucket_id
-        endpoint    = "{}/{}".format(self.MAIN_ENDPOINT, bucket_id)
-        bucket_details = req.get(endpoint, headers=self.auth_header)
+        bucket_details = self.client.get('/buckets/{}'.format(bucket_id))
         return bucket_details.json()
 
     def create(self, name=None, description=None):
@@ -28,8 +22,7 @@ class Bucket(zbn):
         """
 
         bucket_data     = {'name': name, 'description': description}
-        endpoint        = self.MAIN_ENDPOINT
-        post_bucket     = req.post(endpoint, headers=self.auth_header, data=bucket_data)
+        post_bucket     = self.client.post("/buckets", bucket_data)
         return post_bucket.json()
 
     def update(self, bucket_id=None, name=None, description=None):
@@ -41,8 +34,7 @@ class Bucket(zbn):
 
         bucket_id = bucket_id if bucket_id is not None else self.bucket_id
         bucket_data     = {'name': name, 'description': description}
-        endpoint        = "{}/{}".format(self.MAIN_ENDPOINT, bucket_id)
-        update_bucket   = req.put(endpoint, headers=self.auth_header, data=bucket_data)
+        update_bucket   = self.client.put("/buckets/{}".format(bucket_id), bucket_data)
         return update_bucket.json()
 
     def delete(self, bucket_id=None):
@@ -52,8 +44,7 @@ class Bucket(zbn):
             http://developer.dribbble.com/v1/buckets/#delete-a-bucket
         """
         bucket_id       = bucket_id or self.bucket_id
-        endpoint        = "{}/{}".format(self.MAIN_ENDPOINT, bucket_id)
-        delete_response = req.delete(endpoint, headers=self.auth_header)
+        delete_response = self.client.delete('/buckets/{}'.format(bucket_id))
         return delete_response
 
     def list_shots(self,bucket_id=None):
@@ -64,8 +55,7 @@ class Bucket(zbn):
         """
 
         bucket_id       = bucket_id or self.bucket_id
-        endpoint        = "{}/{}/shots".format(self.MAIN_ENDPOINT, bucket_id)
-        shots_list      = req.get(endpoint, headers=self.auth_header)
+        shots_list      = self.client.get("/buckets/{}/shots".format(bucket_id))
         return shots_list.json()
 
     def add_shot(self, shot_id):
@@ -76,8 +66,7 @@ class Bucket(zbn):
         """
 
         shot_data                = {'shot_id': shot_id}
-        endpoint                 = "{}/{}/shots".format(self.MAIN_ENDPOINT, self.bucket_id)
-        new_shot_response        = req.put(endpoint, headers=self.auth_header, data=shot_data)
+        new_shot_response        = self.client.put("/buckets/{}/shots".format(self.bucket_id), shot_data)
         return new_shot_response
 
     def remove_shot(self, shot_id):
@@ -88,6 +77,5 @@ class Bucket(zbn):
         """
 
         shot_data                    = {'shot_id': shot_id}
-        endpoint                     = "{}/{}/shots".format(self.MAIN_ENDPOINT, self.bucket_id)
-        delete_shot_response         = req.delete(endpoint, headers=self.auth_header, data=shot_data)
+        delete_shot_response         = self.client.delete("/buckets/{}/shots".format(self.bucket_id))
         return delete_shot_response
