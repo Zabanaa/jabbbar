@@ -1,4 +1,4 @@
-from zabbbana.user import User
+from zabbbana.users import User
 from . import jordan
 
 test_user = User(jordan)
