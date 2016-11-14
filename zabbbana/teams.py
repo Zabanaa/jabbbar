@@ -1,12 +1,7 @@
-from zabbbana import Zabbbana as zbn
-import requests as req
+class Team():
 
-class Team(zbn):
-
-    MAIN_ENDPOINT = "{}/teams".format(zbn.API_ENDPOINT)
-
-    def __init__(self, inst, team_id):
-        zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
+    def __init__(self, client, team_id):
+        self.client  = client
         self.team_id = str(team_id)
 
 
@@ -16,8 +11,7 @@ class Team(zbn):
             http://developer.dribbble.com/v1/teams/members/
         """
         team_id             = str(team_id) if team_id is not None else self.team_id
-        endpoint            = "{}/{}/members".format(self.MAIN_ENDPOINT, team_id)
-        team_players        = req.get(endpoint, headers=self.auth_header)
+        team_players        = self.client.get("/teams/{}/members".format(team_id))
         return team_players.json()
 
 
@@ -26,6 +20,5 @@ class Team(zbn):
             http://developer.dribbble.com/v1/teams/shots/
         """
         team_id             = str(team_id) if team_id is not None else self.team_id
-        endpoint            = "{}/{}/shots".format(self.MAIN_ENDPOINT, team_id)
-        team_shots          = req.get(endpoint, headers=self.auth_header)
+        team_shots          = self.client.get("/teams/{}/shots".format(team_id))
         return team_shots.json()
