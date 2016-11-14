@@ -21,8 +21,10 @@ class Zabbbana(object):
         self.auth_header        = {'Authorization': 'Bearer {}'.format(self.access_token)}
 
     @property
-    def generate_auth_url(self):
+    def auth_url(self):
+
         """ Generates a URL to the authorize endpoint used by dribbble to return a grant_code """
+
         return "{}?client_id={}&redirect_uri={}&scope={}&state={}".format(AUTH_ENDPOINT, self.client_id,\
                 self.redirect_uri, self.scope, self.state)
 
@@ -41,3 +43,19 @@ class Zabbbana(object):
         token_response      = token_request.json()
         access_token        = token_response['access_token']
         self.access_token   = access_token
+
+    def get(self, resource_endpoint):
+        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+        return req.get(url, headers=self.auth_header)
+
+    def post(self, resource_endpoint, data):
+        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+        return req.post(url, headers=self.auth_header, data=data)
+
+    def put(self, resource_endpoint, data):
+        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+        return req.put(url, headers=self.auth_header, data=data)
+
+    def delete(self, resource_endpoint):
+        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+        return req.delete(url, headers=self.auth_header)
