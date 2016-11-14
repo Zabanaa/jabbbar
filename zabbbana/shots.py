@@ -1,17 +1,7 @@
-from zabbbana import Zabbbana as zbn
-import requests as req
+class Shots():
 
-class Shots(zbn):
-
-    MAIN_ENDPOINT = "{}/shots".format(zbn.API_ENDPOINT)
-
-    def __init__(self, inst):
-        zbn.__init__(
-            self,
-            client_id=inst.client_id,
-            client_secret=inst.client_secret,
-            access_token=inst.access_token
-        )
+    def __init__(self, client):
+        self.client = client
 
     def list_all(self, params):
 
@@ -20,7 +10,7 @@ class Shots(zbn):
             http://developer.dribbble.com/v1/shots/#list-shots
         """
 
-        shots = req.get(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
+        shots = self.client.get("/shots")
         return shots.json()
 
     def get_one(self, shot_id):
@@ -30,11 +20,10 @@ class Shots(zbn):
             http://developer.dribbble.com/v1/shots/#get-a-shot
         """
 
-        endpoint    = "{}/{}".format(self.MAIN_ENDPOINT, shot_id)
-        shot_info   = req.get(endpoint, headers=self.auth_header)
+        shot_info   = self.client.get("/shots/{}".format(shot_id))
         return shot_info.json()
 
-    def upload(self, params):
+    def upload(self, shot_data):
 
         """
             Uploads a shot to the user's account (the user must be authenticated with the upload scope,
@@ -42,10 +31,10 @@ class Shots(zbn):
             http://developer.dribbble.com/v1/shots/#create-a-shot
         """
 
-        upload_shot = req.post(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
+        upload_shot = self.client.post("/shots", data=shot_data)
         return upload_shot
 
-    def update(self, shot_id, params):
+    def update(self, shot_id, shot_data):
 
         """
             Update information about a shot
