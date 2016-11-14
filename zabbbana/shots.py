@@ -15,14 +15,20 @@ class Shots(zbn):
 
     def list_all(self, params):
 
-        """ Retrieve a list of all uploaded shots on the site"""
+        """
+            Retrieve a list of all uploaded shots on the site
+            http://developer.dribbble.com/v1/shots/#list-shots
+        """
 
         shots = req.get(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
         return shots.json()
 
     def get_one(self, shot_id):
 
-        """ Get details for a specific shot"""
+        """
+            Get details for a specific shot
+            http://developer.dribbble.com/v1/shots/#get-a-shot
+        """
 
         endpoint    = "{}/{}".format(self.MAIN_ENDPOINT, shot_id)
         shot_info   = req.get(endpoint, headers=self.auth_header)
@@ -30,20 +36,28 @@ class Shots(zbn):
 
     def upload(self, params):
 
-        """ Uploads a shot to the user's account (the user must be authenticated with the upload scope,
-        he/she also must be a drafted player"""
+        """
+            Uploads a shot to the user's account (the user must be authenticated with the upload scope,
+        he/she also must be a drafted player
+            http://developer.dribbble.com/v1/shots/#create-a-shot
+        """
 
         upload_shot = req.post(self.MAIN_ENDPOINT, headers=self.auth_header, params=params)
         return upload_shot
 
     def update(self, shot_id, params):
 
-        """ Update information about a shot"""
-
+        """
+            Update information about a shot
+            http://developer.dribbble.com/v1/shots/#update-a-shot
+        """
         pass
 
     def delete(self, shot_id):
 
-        """ Delete a specific shot"""
+        """
+            Delete a specific shot
+            http://developer.dribbble.com/v1/shots/#delete-a-shot
+        """
 
         pass
