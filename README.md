@@ -127,7 +127,7 @@ Simple to use python wrapper for the Dribbble API.
 
 ======================
 
-## Class User
+## Class User (DONE)
 
 ### Params
 
@@ -135,26 +135,26 @@ Simple to use python wrapper for the Dribbble API.
 
 ### methods
 
-- User.get_details()
-- User.get_user_details()
-- User.get_buckets()
-- User.list_followers()
-- User.list_followed_users()
-- User.list_shots_by_followed_users()
-- User.do_i_follow_them()
-- User.are_they_following_that_user()
-- User.follow_player()
-- User.unfollow_player()
-- User.get_my_likes()
-- User.get_likes()
-- User.list_my_projects()
-- User.list_projects()
-- User.list_my_shots()
-- User.list_shots()
-- User.list_my_teams()
-- User.list_shots()
-- User.list_my_teams()
-- User.list_teams()
+- User.get_details()                    // DONE
+- User.get_user_details()               // DONE
+- User.get_buckets()                    // DONE
+- User.list_followers()                 // DONE
+- User.list_followed_users()            // DONE
+- User.list_shots_by_followed_users()   // DONE
+- User.do_i_follow_them()               // DONE
+- User.are_they_following_that_user()   // DONE
+- User.follow_player()                  // DONE
+- User.unfollow_player()                // DONE
+- User.get_my_likes()                   // DONE
+- User.get_likes()                      // DONE
+- User.list_my_projects()               // DONE
+- User.list_projects()                  // DONE
+- User.list_my_shots()                  // DONE
+- User.list_shots()                     // DONE
+- User.list_my_teams()                  // DONE
+- User.list_shots()                     // DONE
+- User.list_my_teams()                  // DONE
+- User.list_teams()                     // DONE
 
 // Possibly not
 - User.create_bucket()
@@ -175,3 +175,8 @@ _Need a player account_
 - [ ] Shot.create_comment
 - [ ] Shot.update_comment
 - [ ] Shot.delete_comment
+
+- [ ] Request Exceptions
+- [ ] Jabbbar.remaining_requests @property
+- [ ] Jabbbar.rate_limit @property
+
