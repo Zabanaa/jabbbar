@@ -7,7 +7,7 @@ AUTH_ENDPOINT   = "https://dribbble.com/oauth/authorize"
 OAUTH_ENDPOINT  = "https://dribbble.com/oauth/token"
 SCOPE           = ['write', 'public', 'comment', 'upload']
 
-class Zabbbana(object):
+class Jabbbar(object):
 
     def __init__(self, client_id=None, client_secret=None, redirect_uri=None, access_token=None, state=None, scope=SCOPE):
         self.client_id          = client_id

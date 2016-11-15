@@ -1,9 +1,9 @@
-from zabbbana.project import Project
-from . import jordan
+from jabbbar.project import Project
+from . import client
 
 DEFAULT_PROJECT_ID = 3
 
-test_project = Project(jordan, DEFAULT_PROJECT_ID)
+test_project = Project(client, DEFAULT_PROJECT_ID)
 
 def test_get_details():
     response = test_project.get_details()

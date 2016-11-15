@@ -1,12 +1,12 @@
-from zabbbana.shot import Shot
-from . import jordan
+from jabbbar.shot import Shot
+from . import client
 
 DEFAULT_SHOT_ID            = 1757843
 DEFAULT_COMMENT_ID         = 3991565
 EXTERNAL_SHOT_ID           = 3064133
 EXTERNAL_COMMENT_ID        = 5690090
 DEFAULT_ATTACHEMENT_ID     = 285772
-test_shot = Shot(jordan, DEFAULT_SHOT_ID)
+test_shot = Shot(client, DEFAULT_SHOT_ID)
 
 def test_list_attachments():
     # List attachements for the instanciated shot

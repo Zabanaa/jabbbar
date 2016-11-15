@@ -1,8 +1,8 @@
 import os
-from zabbbana.shots import Shots
-from . import jordan
+from jabbbar.shots import Shots
+from . import client
 
-test_shots = Shots(jordan)
+test_shots = Shots(client)
 PATH_TO_IMG = os.path.dirname(__file__)
 
 DEFAULT_SHOT_ID      = 471756

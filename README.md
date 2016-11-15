@@ -1,4 +1,4 @@
-# Zabbbana
+# Jabbbar
 
 ## Usage
 
@@ -24,7 +24,7 @@ Things I learned
 
 Simple to use python wrapper for the Dribbble API.
 
-## Class Zabbbana (DONE)
+## Class Jabbbar (DONE)
 
 ### Params
 

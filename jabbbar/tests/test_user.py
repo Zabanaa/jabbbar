@@ -1,8 +1,8 @@
-from zabbbana.user import User
-from . import jordan
+from jabbbar.user import User
+from . import client
 
 TEST_USERNAME   = "kolage"
-test_user       = User(jordan)
+test_user       = User(client)
 
 def test_get_user():
     response = test_user.get_details()

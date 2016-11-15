@@ -1,8 +1,8 @@
-from zabbbana.team import Team
-from . import jordan
+from jabbbar.team import Team
+from . import client
 
 DEFAULT_TEAM_ID = "Creativedash"
-test_team = Team(jordan, DEFAULT_TEAM_ID)
+test_team = Team(client, DEFAULT_TEAM_ID)
 
 
 def test_list_players():
