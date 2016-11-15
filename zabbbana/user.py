@@ -1,29 +1,100 @@
-from zabbbana import Zabbbana as zbn
-import requests as req
+class User():
 
+    def __init__(self, client):
+        self.client     = client
 
-class User(zbn):
+    def get_details(self, username=None):
 
-    MAIN_ENDPOINT = "{}/users".format(zbn.API_ENDPOINT)
+        if username is not None:
+            user_details        = self.client.get("/users/{username}".format(username=username))
+        else:
+            user_details        = self.client.get("/user")
 
-    def __init__(self, inst):
-        zbn.__init__(self, client_id=inst.client_id, client_secret=inst.client_secret, access_token=inst.access_token)
+        return user_details.json()
 
-    # get user
-    # list authenticated user
-    # list bucket
-    # list authenticated users bucket
-    # list shot likes
-    # list shot likes for authed user
-    # list projects
-    # list projects for authed user
-    # list shots
-    # list shots for authed user
-    # list teams
-    # list teams for authed user
-    # list followers
-    # list following
-    # list following shots
-    # check_user_is_following (optional user id, if passed then check if that user is following the target user)
+    def list_buckets(self, username=None):
+
+        if username is not None:
+            buckets             = self.client.get("/users/{username}/buckets".format(username=username))
+        else:
+            buckets             = self.client.get("/user/buckets")
+
+        return buckets.json()
+
+    def list_shot_likes(self, username=None):
+
+        if username is not None:
+            shot_likes          = self.client.get("/users/{username}/likes".format(username=username))
+        else:
+            shot_likes          = self.client.get("/user/likes")
+
+        return shot_likes.json()
+
+    def list_projects(self, username=None):
+
+        if username is not None:
+            projects            = self.client.get("/users/{username}/projects".format(username=username))
+        else:
+            projects            = self.client.get("/user/projects")
+
+        return projects.json()
+
+    def list_shots(self, username=None):
+
+        if username is not None:
+            shots               = self.client.get("/users/{username}/shots".format(username=username))
+        else:
+            shots               = self.client.get("/user/shots")
+
+        return shots.json()
+
+    def list_teams(self, username=None):
+
+        if username is not None:
+            teams               = self.client.get("/users/{username}/teams".format(username=username))
+        else:
+            teams               = self.client.get("/user/teams")
+
+        return teams.json()
+
+    def list_followers(self, username=None):
+
+        if username is not None:
+            followers               = self.client.get("/users/{username}/followers".format(username=username))
+        else:
+            followers               = self.client.get("/user/followers")
+
+        return followers.json()
+
+    def list_following(self, username=None):
+
+        if username is not None:
+            following               = self.client.get("/users/{username}/following".format(username=username))
+        else:
+            following               = self.client.get("/user/following")
+
+        return following.json()
+
+    def list_shots_from_following(self):
+
+        shots_from_following        = self.client.get("/user/following/shots")
+        return shots_from_following.json()
+
+    def check_following(self, username=None, target_user=None):
+        if username is not None:
+            following_user          = self.client.get("/users/{username}/following/{target_user}".format(username=username,
+                                                                                             target_user=target_user))
+        else:
+            following_user          = self.client.get("/user/following/{target_user}".format(target_user=target_user))
+
+        return following_user
+
     # follow
+    def follow_user(self, target_user):
+        follow_user_response        = self.client.put("/users/{target_user}/follow".format(target_user=target_user))
+        return follow_user_response
+
     # unfollow
+    def unfollow_user(self, target_user):
+        unfollow_user_response      = self.client.delete("/users/{target_user}/follow".format(target_user=target_user))
+        return unfollow_user_response
