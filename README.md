@@ -1,5 +1,20 @@
 # Zabbbana
 
+## Usage
+
+1. Register an app on Dribbble.com (choose a name, add a description, a website url and
+  a callback url)
+2. You'll get a client_id and client_secret (store them somewhere)
+3. Download and import jabbbar
+4. Instantiate a jabbbar object and pass it your client_id, client_secret and redirect_uri
+5. Generate an autorisation link
+6. Send the user to dribbble to access their account and agree to let the app use their
+   information. If they accept, they will be redirected to your callback url with a code
+   as a query param. Retrieve that code and store it in a variable for later use.
+7. With the code retrieved, you can now get an access token to make requests on behalf of
+   that user, by using jabbbar.get_access_token(code="GENERATED_CODE")
+8. The access token is now set, you can start using the package to make requests
+
 Things I learned
 
 - The OAuth authentication flow
