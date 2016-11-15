@@ -2,14 +2,12 @@ import requests as req
 
 __author__ = "Karim Cheurfi"
 
-API_ENDPOINT    = "https://api.dribbble.com/v1"
+API_URL         = "https://api.dribbble.com/v1"
 AUTH_ENDPOINT   = "https://dribbble.com/oauth/authorize"
 OAUTH_ENDPOINT  = "https://dribbble.com/oauth/token"
 SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Zabbbana(object):
-
-    API_ENDPOINT    = "https://api.dribbble.com/v1"
 
     def __init__(self, client_id=None, client_secret=None, redirect_uri=None, access_token=None, state=None, scope=SCOPE):
         self.client_id          = client_id
@@ -44,18 +42,21 @@ class Zabbbana(object):
         access_token        = token_response['access_token']
         self.access_token   = access_token
 
-    def get(self, resource_endpoint):
-        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+    def _create_request_url(self, resource_url):
+        return "{api_endpoint}{resource_url}".format(api_endpoint=API_URL, resource_url=resource_url)
+
+    def GET(self, resource_endpoint):
+        url         = self._create_request_url(resource_endpoint)
         return req.get(url, headers=self.auth_header)
 
-    def post(self, resource_endpoint, data=None):
-        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+    def POST(self, resource_endpoint, data={}):
+        url         = self._create_request_url(resource_endpoint)
         return req.post(url, headers=self.auth_header, data=data)
 
-    def put(self, resource_endpoint, data=None):
-        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+    def PUT(self, resource_endpoint, data={}):
+        url         = self._create_request_url(resource_endpoint)
         return req.put(url, headers=self.auth_header, data=data)
 
-    def delete(self, resource_endpoint):
-        url         = "{}{}".format(API_ENDPOINT, resource_endpoint)
+    def DELETE(self, resource_endpoint):
+        url         = self._create_request_url(resource_endpoint)
         return req.delete(url, headers=self.auth_header)

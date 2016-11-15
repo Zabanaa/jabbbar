@@ -12,7 +12,7 @@ class Project():
         """
 
         project_id      = project_id if project_id is not None else self.project_id
-        project_details = self.client.get("/projects/{}".format(project_id))
+        project_details = self.client.GET("/projects/{}".format(project_id))
         return project_details.json()
 
     def get_shots(self, project_id=None):
@@ -23,5 +23,5 @@ class Project():
         """
 
         project_id      = project_id if project_id is not None else self.project_id
-        shots           = self.client.get("/projects/{}/shots".format(project_id))
+        shots           = self.client.GET("/projects/{}/shots".format(project_id))
         return shots.json()

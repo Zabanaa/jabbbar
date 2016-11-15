@@ -6,95 +6,95 @@ class User():
     def get_details(self, username=None):
 
         if username is not None:
-            user_details        = self.client.get("/users/{username}".format(username=username))
+            user_details        = self.client.GET("/users/{username}".format(username=username))
         else:
-            user_details        = self.client.get("/user")
+            user_details        = self.client.GET("/user")
 
         return user_details.json()
 
     def list_buckets(self, username=None):
 
         if username is not None:
-            buckets             = self.client.get("/users/{username}/buckets".format(username=username))
+            buckets             = self.client.GET("/users/{username}/buckets".format(username=username))
         else:
-            buckets             = self.client.get("/user/buckets")
+            buckets             = self.client.GET("/user/buckets")
 
         return buckets.json()
 
     def list_shot_likes(self, username=None):
 
         if username is not None:
-            shot_likes          = self.client.get("/users/{username}/likes".format(username=username))
+            shot_likes          = self.client.GET("/users/{username}/likes".format(username=username))
         else:
-            shot_likes          = self.client.get("/user/likes")
+            shot_likes          = self.client.GET("/user/likes")
 
         return shot_likes.json()
 
     def list_projects(self, username=None):
 
         if username is not None:
-            projects            = self.client.get("/users/{username}/projects".format(username=username))
+            projects            = self.client.GET("/users/{username}/projects".format(username=username))
         else:
-            projects            = self.client.get("/user/projects")
+            projects            = self.client.GET("/user/projects")
 
         return projects.json()
 
     def list_shots(self, username=None):
 
         if username is not None:
-            shots               = self.client.get("/users/{username}/shots".format(username=username))
+            shots               = self.client.GET("/users/{username}/shots".format(username=username))
         else:
-            shots               = self.client.get("/user/shots")
+            shots               = self.client.GET("/user/shots")
 
         return shots.json()
 
     def list_teams(self, username=None):
 
         if username is not None:
-            teams               = self.client.get("/users/{username}/teams".format(username=username))
+            teams               = self.client.GET("/users/{username}/teams".format(username=username))
         else:
-            teams               = self.client.get("/user/teams")
+            teams               = self.client.GET("/user/teams")
 
         return teams.json()
 
     def list_followers(self, username=None):
 
         if username is not None:
-            followers               = self.client.get("/users/{username}/followers".format(username=username))
+            followers               = self.client.GET("/users/{username}/followers".format(username=username))
         else:
-            followers               = self.client.get("/user/followers")
+            followers               = self.client.GET("/user/followers")
 
         return followers.json()
 
     def list_following(self, username=None):
 
         if username is not None:
-            following               = self.client.get("/users/{username}/following".format(username=username))
+            following               = self.client.GET("/users/{username}/following".format(username=username))
         else:
-            following               = self.client.get("/user/following")
+            following               = self.client.GET("/user/following")
 
         return following.json()
 
     def list_shots_from_following(self):
 
-        shots_from_following        = self.client.get("/user/following/shots")
+        shots_from_following        = self.client.GET("/user/following/shots")
         return shots_from_following.json()
 
     def check_following(self, username=None, target_user=None):
         if username is not None:
-            following_user          = self.client.get("/users/{username}/following/{target_user}".format(username=username,
+            following_user          = self.client.GET("/users/{username}/following/{target_user}".format(username=username,
                                                                                              target_user=target_user))
         else:
-            following_user          = self.client.get("/user/following/{target_user}".format(target_user=target_user))
+            following_user          = self.client.GET("/user/following/{target_user}".format(target_user=target_user))
 
         return following_user
 
     # follow
     def follow_user(self, target_user):
-        follow_user_response        = self.client.put("/users/{target_user}/follow".format(target_user=target_user))
+        follow_user_response        = self.client.PUT("/users/{target_user}/follow".format(target_user=target_user))
         return follow_user_response
 
     # unfollow
     def unfollow_user(self, target_user):
-        unfollow_user_response      = self.client.delete("/users/{target_user}/follow".format(target_user=target_user))
+        unfollow_user_response      = self.client.DELETE("/users/{target_user}/follow".format(target_user=target_user))
         return unfollow_user_response

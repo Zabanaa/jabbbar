@@ -11,7 +11,7 @@ class Bucket():
             http://developer.dribbble.com/v1/buckets/#get-a-bucket
         """
         bucket_id   = bucket_id if bucket_id is not None else self.bucket_id
-        bucket_details = self.client.get('/buckets/{}'.format(bucket_id))
+        bucket_details = self.client.GET('/buckets/{}'.format(bucket_id))
         return bucket_details.json()
 
     def create(self, name=None, description=None):
@@ -22,7 +22,7 @@ class Bucket():
         """
 
         bucket_data     = {'name': name, 'description': description}
-        post_bucket     = self.client.post("/buckets", data=bucket_data)
+        post_bucket     = self.client.POST("/buckets", data=bucket_data)
         return post_bucket.json()
 
     def update(self, bucket_id=None, name=None, description=None):
@@ -34,7 +34,7 @@ class Bucket():
 
         bucket_id = bucket_id if bucket_id is not None else self.bucket_id
         bucket_data     = {'name': name, 'description': description}
-        update_bucket   = self.client.put("/buckets/{}".format(bucket_id), data=bucket_data)
+        update_bucket   = self.client.PUT("/buckets/{}".format(bucket_id), data=bucket_data)
         return update_bucket.json()
 
     def delete(self, bucket_id=None):
@@ -44,7 +44,7 @@ class Bucket():
             http://developer.dribbble.com/v1/buckets/#delete-a-bucket
         """
         bucket_id       = bucket_id or self.bucket_id
-        delete_response = self.client.delete('/buckets/{}'.format(bucket_id))
+        delete_response = self.client.DELETE('/buckets/{}'.format(bucket_id))
         return delete_response
 
     def list_shots(self,bucket_id=None):
@@ -55,7 +55,7 @@ class Bucket():
         """
 
         bucket_id       = bucket_id or self.bucket_id
-        shots_list      = self.client.get("/buckets/{}/shots".format(bucket_id))
+        shots_list      = self.client.GET("/buckets/{}/shots".format(bucket_id))
         return shots_list.json()
 
     def add_shot(self, shot_id):
@@ -66,7 +66,7 @@ class Bucket():
         """
 
         shot_data                = {'shot_id': shot_id}
-        new_shot_response        = self.client.put("/buckets/{}/shots".format(self.bucket_id), data=shot_data)
+        new_shot_response        = self.client.PUT("/buckets/{}/shots".format(self.bucket_id), data=shot_data)
         return new_shot_response
 
     def remove_shot(self, shot_id):
@@ -77,5 +77,5 @@ class Bucket():
         """
 
         shot_data                    = {'shot_id': shot_id}
-        delete_shot_response         = self.client.delete("/buckets/{}/shots".format(self.bucket_id))
+        delete_shot_response         = self.client.DELETE("/buckets/{}/shots".format(self.bucket_id))
         return delete_shot_response

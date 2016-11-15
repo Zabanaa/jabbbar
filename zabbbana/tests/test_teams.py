@@ -1,4 +1,4 @@
-from zabbbana.teams import Team
+from zabbbana.team import Team
 from . import jordan
 
 DEFAULT_TEAM_ID = "Creativedash"

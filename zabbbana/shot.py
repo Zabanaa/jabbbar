@@ -12,7 +12,7 @@ class Shot():
         """
 
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        attachments         = self.client.get("/shots/{}/attachments".format(shot_id))
+        attachments         = self.client.GET("/shots/{}/attachments".format(shot_id))
         return attachments.json()
 
     def get_attachment(self, attachment_id, shot_id=None):
@@ -22,7 +22,7 @@ class Shot():
             http://developer.dribbble.com/v1/shots/attachments/#get-a-single-attachment
         """
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        attachment          = self.client.get("/shots/{}/attachments/{}".format(shot_id, attachment_id))
+        attachment          = self.client.GET("/shots/{}/attachments/{}".format(shot_id, attachment_id))
         return attachment.json()
 
     def list_buckets(self, shot_id=None):
@@ -33,7 +33,7 @@ class Shot():
         """
 
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        buckets             = self.client.get("/shots/{}/buckets".format(shot_id))
+        buckets             = self.client.GET("/shots/{}/buckets".format(shot_id))
         return buckets.json()
 
     def list_comments(self, shot_id=None):
@@ -42,7 +42,7 @@ class Shot():
             http://developer.dribbble.com/v1/shots/comments/#list-comments-for-a-shot
         """
         shot_id             = shot_id if shot_id is not None else self.shot_id
-        comments            = self.client.get("/shots/{}/comments".format(shot_id))
+        comments            = self.client.GET("/shots/{}/comments".format(shot_id))
         return comments.json()
 
     def list_comment_likes(self, comment_id, shot_id=None):
@@ -53,7 +53,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        comment_likes           = self.client.get("/shots/{}/comments/{}/likes".format(shot_id, comment_id))
+        comment_likes           = self.client.GET("/shots/{}/comments/{}/likes".format(shot_id, comment_id))
         return comment_likes.json()
 
     def get_comment(self, comment_id, shot_id=None):
@@ -63,7 +63,7 @@ class Shot():
             http://developer.dribbble.com/v1/shots/comments/#get-a-single-comment
         """
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        comment                 = self.client.get("/shots/{}/comments/{}".format(shot_id, comment_id))
+        comment                 = self.client.GET("/shots/{}/comments/{}".format(shot_id, comment_id))
         return comment.json()
 
     def check_user_likes_comment(self, comment_id, shot_id=None):
@@ -74,7 +74,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        result                  = self.client.get("/shots/{}/comments/{}/like".format(shot_id, comment_id))
+        result                  = self.client.GET("/shots/{}/comments/{}/like".format(shot_id, comment_id))
         return result
 
     def like_comment(self, comment_id, shot_id=None):
@@ -85,7 +85,7 @@ class Shot():
             http://developer.dribbble.com/v1/shots/comments/#like-a-comment
         """
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        like                    = self.client.post("/shots/{}/comments/{}/like".format(shot_id, comment_id))
+        like                    = self.client.POST("/shots/{}/comments/{}/like".format(shot_id, comment_id))
         return like.json()
 
     def unlike_comment(self, comment_id, shot_id=None):
@@ -95,7 +95,7 @@ class Shot():
             http://developer.dribbble.com/v1/shots/comments/#unlike-a-comment
         """
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        unlike                  = self.client.delete("/shots/{}/comments/{}/like".format(shot_id, comment_id))
+        unlike                  = self.client.DELETE("/shots/{}/comments/{}/like".format(shot_id, comment_id))
         return unlike
 
     def list_likes(self, shot_id=None):
@@ -106,7 +106,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        shot_likes              = self.client.get("/shots/{}/likes".format(shot_id))
+        shot_likes              = self.client.GET("/shots/{}/likes".format(shot_id))
         return shot_likes.json()
 
     def like(self, shot_id=None):
@@ -117,7 +117,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        like                    = self.client.post("/shots/{}/like".format(shot_id))
+        like                    = self.client.POST("/shots/{}/like".format(shot_id))
         return like.json()
 
     def unlike(self, shot_id=None):
@@ -128,7 +128,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        unlike                  = self.client.delete("/shots/{}/like".format(shot_id))
+        unlike                  = self.client.DELETE("/shots/{}/like".format(shot_id))
         return unlike
 
     def list_projects(self, shot_id=None):
@@ -139,7 +139,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        projects                = self.client.get("/shots/{}/projects".format(shot_id))
+        projects                = self.client.GET("/shots/{}/projects".format(shot_id))
         return projects.json()
 
     def list_rebounds(self, shot_id=None):
@@ -150,7 +150,7 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        projects                = self.client.get("/shots/{}/rebounds".format(shot_id))
+        projects                = self.client.GET("/shots/{}/rebounds".format(shot_id))
         return projects.json()
 
     def check_user_likes_shot(self, shot_id=None):
@@ -161,5 +161,5 @@ class Shot():
         """
 
         shot_id                 = shot_id if shot_id is not None else self.shot_id
-        like_shot               = self.client.get("/shots/{}/like".format(shot_id))
+        like_shot               = self.client.GET("/shots/{}/like".format(shot_id))
         return like_shot

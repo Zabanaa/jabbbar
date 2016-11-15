@@ -10,7 +10,7 @@ class Shots():
             http://developer.dribbble.com/v1/shots/#list-shots
         """
 
-        shots = self.client.get("/shots")
+        shots = self.client.GET("/shots")
         return shots.json()
 
     def get_one(self, shot_id):
@@ -20,7 +20,7 @@ class Shots():
             http://developer.dribbble.com/v1/shots/#get-a-shot
         """
 
-        shot_info   = self.client.get("/shots/{}".format(shot_id))
+        shot_info   = self.client.GET("/shots/{}".format(shot_id))
         return shot_info.json()
 
     def upload(self, shot_data):
@@ -31,7 +31,7 @@ class Shots():
             http://developer.dribbble.com/v1/shots/#create-a-shot
         """
 
-        upload_shot = self.client.post("/shots", data=shot_data)
+        upload_shot = self.client.POST("/shots", data=shot_data)
         return upload_shot
 
     def update(self, shot_id, shot_data):
