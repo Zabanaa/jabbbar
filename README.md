@@ -86,8 +86,10 @@ from jabbbar.Project import Project
 # ...
 ```
 
-# Examples
+## Examples
 
+
+### Users
 Create a user object
 ```python
 # ...
@@ -96,12 +98,164 @@ my_user = User(client)
 
 ```
 
-Get your user's account details
 ```python
+# Get your user's account details
 my_user.get_details()
-```
 
-Get another user's account details
-```python
+# Get another user's account details
 my_user.get_details(username="therealmichaeljordan")
 ```
+
+### Shots
+
+```python
+# Instantiate a Shots object
+shots = Shots(client)
+
+# List all shots
+shots.list_all()
+
+# Get a specific shot's details
+shots.get_one(1234567890)
+```
+
+### Teams
+
+```python
+# Instantiate a Team object
+my_team = Team(client, team_id="name_of_the_team")
+
+# Get a list of all of the team players
+my_team.list_players()
+
+# You can also list the players for other teams
+my_team.list_players(team_id="some_other_team")
+```
+
+### Projects
+
+```python
+# Instantiate a Project object
+project = Project(client, project_id=1234567890)
+
+# Get details for the instantiated project
+project.get_details()
+
+# You can also details for other projects
+project.get_details(project_id=12345678980)
+```
+
+### Buckets
+
+```python
+# Instantiate a Bucket object
+bucket = Bucket(client, bucket_id=1234567890)
+
+# Get details for the instantiated bucket
+bucket.get_details()
+
+# Create a bucket
+bucket.create(name="my_new_bucket", description="a cool bucket")
+```
+
+### Shots (individual shots)
+
+```python
+# Instantiate a Bucket object
+shot = Shot(client, shot_id=1234567890)
+
+# Get a list of all attachments for the instantiated shot
+shot.list_attachments()
+
+# Get a list of all attachments for another shot
+shot.list_attachments(shot_id=9283328392)
+```
+
+## Full List Of Methods
+
+```
+User.get_details()
+User.list_buckets()
+User.list_shot_likes()
+User.list_projects()
+User.list_shots()
+User.list_teams()
+User.list_followers()
+User.list_following()
+User.list_shots_from_following()
+User.check_following()
+User.follow_user()
+User.unfollow_user()
+
+Team.list_players()
+Team.list_shots()
+
+Shots.list_all()
+Shots.get_one()
+Shots.upload()
+Shots.update()
+Shots.delete()
+
+Shot.list_attachments()
+Shot.get_attachment()
+Shot.list_buckets()
+Shot.list_comments()
+Shot.list_comment_likes()
+Shot.get_comment()
+Shot.check_user_likes_comment()
+Shot.like_comment()
+Shot.unlike_comment()
+Shot.list_likes()
+Shot.like()
+Shot.unlike()
+Shot.list_projects()
+Shot.list_rebounds()
+Shot.check_user_likes_shots()
+
+Project.get_details()
+Project.get_shots()
+
+Bucket.get_details()
+Bucket.create()
+Bucket.update()
+Bucket.delete()
+Bucket.list_shots()
+Bucket.add_shot()
+Bucket.remove_shot()
+```
+## Testing
+
+In order to run the tests, follow these 3 steps:
+
+- Rename `jabbbar/tests/credentials.example.py` to `credentials.py`
+- Fill in your credentials
+- run `nosetests`
+
+
+## Contribution and Improvements
+
+If you spot code smells and wish to make improvements, please feel free to do so by way of
+pull requests, explaining how the solution you're proposing is better (purely for learning
+purposes)
+
+## License
+
+Jabbbar is licensed under the Do What The Fuck You Want license.
+
+## Todo
+
+- [ ] Add support for userless access
+- [ ] Create a `Jabbar.rate_limit()` method
+- [ ] Create a `Jabbar.remaining_requests()` method
+- [ ] Create a `Jabbar.rate_limit()` method
+
+_Need a player account_
+- [ ] Shots.upload
+- [ ] Shots.update
+- [ ] Shots.delete
+
+- [ ] Shot.create_attachement
+- [ ] Shot.delete_comment
+- [ ] Shot.create_comment
+- [ ] Shot.update_comment
+- [ ] Shot.delete_comment
