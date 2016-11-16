@@ -250,12 +250,11 @@ Jabbbar is licensed under the Do What The Fuck You Want license.
 - [ ] Create a `Jabbar.rate_limit()` method
 
 _Need a player account_
-- [ ] Shots.upload
-- [ ] Shots.update
-- [ ] Shots.delete
-
-- [ ] Shot.create_attachement
-- [ ] Shot.delete_comment
-- [ ] Shot.create_comment
-- [ ] Shot.update_comment
-- [ ] Shot.delete_comment
+- [ ] `Shots.upload`
+- [ ] `Shots.update`
+- [ ] `Shots.delete`
+- [ ] `Shot.create_attachement`
+- [ ] `Shot.delete_comment`
+- [ ] `Shot.create_comment`
+- [ ] `Shot.update_comment`
+- [ ] `Shot.delete_comment`
