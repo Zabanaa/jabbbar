@@ -10,7 +10,7 @@ effortlessly make calls.
 _Please note that you are limited to 60 requests per minute and 1440 requests per day (for
 calls using OAuth)_
 
-# Requirements
+## Requirements
 
 Before you start using Jabbbar, please ensure you have registered an application with
 Dribbble on their [developers site][1].
@@ -25,3 +25,13 @@ those as you will need both to request an access token.
 _Be careful NOT to share your client secret publicly_
 
 [1]: http://developer.dribbble.com/
+
+## Installation
+
+You can easily install Jabbbar through pip by like so
+```bash
+pip install jabbbar
+```
+
+
+
