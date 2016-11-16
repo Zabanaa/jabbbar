@@ -55,7 +55,7 @@ auth_url = client.auth_url
 Send your users to the `auth_url`. After they authorise your app, they will be redirected
 to the `redirect_uri` you've set in the previous step. The url will contain a query
 parameter of `code` that looks something like this:
-`http://yoursite.com/your_redirect_url?code="AUTHORISATION_CODE"`.
+`http://yoursite.com/your_redirect_url?code="CODE_RETURNED_IN_REDIRECT"`.
 
 In your web application back-end, retrieve the code and use it to request an access_token.
 
@@ -63,3 +63,19 @@ In your web application back-end, retrieve the code and use it to request an acc
 # Request an access token based on the code returned in the redirect
 access_token = client.set_access_token("CODE_RETURNED_IN_REDIRECT")
 ```
+
+You can also instantiate a client directly by passing it an access_token if you have one
+```python
+client = jabbbar.Jabbbar(access_token="YOUR_ACCESS_TOKEN")
+```
+
+With your access token set, you can start making calls to the API.
+
+## Usage
+
+Jabbbar exposes the following classes to help you create more readable code: `Bucket`,
+`Project`, `Shot`, `Shots`, `Team`, `User`
+
+Each of these classes represent a collection of resources accessible through the API
+
+
