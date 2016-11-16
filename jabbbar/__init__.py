@@ -26,7 +26,7 @@ class Jabbbar(object):
         return "{}?client_id={}&redirect_uri={}&scope={}&state={}".format(AUTH_ENDPOINT, self.client_id,\
                 self.redirect_uri, self.scope, self.state)
 
-    def get_access_token(self, auth_code=None):
+    def set_access_token(self, auth_code=None):
 
         """ takes the grant code provided during Object.generate_auth_url() and makes a request to the dribbble api for
         an access token. Extracts it from the response and stores it a an instance variable"""
