@@ -52,3 +52,14 @@ auth_url = client.auth_url
 
 ```
 
+Send your users to the `auth_url`. After they authorise your app, they will be redirected
+to the `redirect_uri` you've set in the previous step. The url will contain a query
+parameter of `code` that looks something like this:
+`http://yoursite.com/your_redirect_url?code="AUTHORISATION_CODE"`.
+
+In your web application back-end, retrieve the code and use it to request an access_token.
+
+```python
+# Request an access token based on the code returned in the redirect
+access_token = client.set_access_token("CODE_RETURNED_IN_REDIRECT")
+```
