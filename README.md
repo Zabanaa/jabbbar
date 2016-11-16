@@ -1,5 +1,5 @@
 <img src="https://github.com/Zabanaa/jabbbar/blob/develop/Jabbbar.png"
-style="text-align:center">
+style="display: block; margin: 0 auto;">
 
 ## Usage
 
