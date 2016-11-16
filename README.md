@@ -33,5 +33,4 @@ You can easily install Jabbbar through pip by like so
 pip install jabbbar
 ```
 
-
-
+Depending on your setup and virtualenv settings you may need sudo privileges
