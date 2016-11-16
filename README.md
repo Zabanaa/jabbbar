@@ -34,3 +34,21 @@ pip install jabbbar
 ```
 
 Depending on your setup and virtualenv settings you may need sudo privileges
+
+## Usage
+
+### Authentication
+
+```python
+
+import jabbbar
+
+# Instantiate the client object
+client  = jabbbar.Jabbbar(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET',
+redirect_uri('https://yoursite.com/authorize')
+
+# Generate an authorisation url for your application
+auth_url = client.auth_url
+
+```
+
