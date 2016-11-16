@@ -22,6 +22,6 @@ their account information).
 When your app is registered, You will be given two keys: a **client id** and a **client secret**. Make note of
 those as you will need both to request an access token.
 
-_Be careful not to share your client secret publicly_
+_Be careful NOT to share your client secret publicly_
 
 [1]: http://developer.dribbble.com/
