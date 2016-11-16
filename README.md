@@ -14,9 +14,12 @@ calls using OAuth)_
 
 Before you start using Jabbbar, please ensure you have registered an application with
 Dribbble on their [developers site][1].
-Give your application a name, a description, a url and a callback url (which will be used to
-redirect your users after they agree to give you access to their information)
-You will then get two keys: a **client id** and a **client secret**. Make note of
+
+You will be asked to give your app a name, a description, a url and a callback url. (Which
+will be used to redirect your users to your site after they agree to give you access to
+their account information).
+
+When your app is registered, You will be given two keys: a **client id** and a **client secret**. Make note of
 those as you will need both to request an access token.
 
 _Be careful not to share your client secret publicly_
