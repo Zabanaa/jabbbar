@@ -78,4 +78,22 @@ Jabbbar exposes the following classes to help you create more readable code: `Bu
 
 Each of these classes represent a collection of resources accessible through the API
 
+To use them, simply import them into your app like this
+
+```python
+from jabbbar.Bucket import Bucket
+from jabbbar.Project import Project
+# ...
+```
+
+# Examples
+
+Get the current user's object:
+```python
+# ...
+# Instantiate your client above
+
+```
+
+
 
