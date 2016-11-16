@@ -88,12 +88,20 @@ from jabbbar.Project import Project
 
 # Examples
 
-Get the current user's object:
+Create a user object
 ```python
 # ...
 # Instantiate your client above
+my_user = User(client)
 
 ```
 
+Get your user's account details
+```python
+my_user.get_details()
+```
 
-
+Get another user's account details
+```python
+my_user.get_details(username="therealmichaeljordan")
+```
