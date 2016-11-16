@@ -1,4 +1,5 @@
-# Jabbbar
+<img src="https://github.com/Zabanaa/jabbbar/blob/develop/Jabbbar.png"
+style="text-align:center">
 
 ## Usage
 
