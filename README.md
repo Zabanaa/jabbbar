@@ -192,9 +192,6 @@ Team.list_shots()
 
 Shots.list_all()
 Shots.get_one()
-Shots.upload()
-Shots.update()
-Shots.delete()
 
 Shot.list_attachments()
 Shot.get_attachment()
@@ -223,6 +220,7 @@ Bucket.list_shots()
 Bucket.add_shot()
 Bucket.remove_shot()
 ```
+
 ## Testing
 
 In order to run the tests, follow these 3 steps:
