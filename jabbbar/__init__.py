@@ -1,4 +1,10 @@
 import requests as req
+from jabbbar.bucket import Bucket
+from jabbbar.project import Project
+from jabbbar.shot import Shot
+from jabbbar.shots import Shots
+from jabbbar.team import Team
+from jabbbar.user import User
 
 __author__ = "Karim Cheurfi"
 
