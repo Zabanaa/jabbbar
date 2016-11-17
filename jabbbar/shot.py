@@ -87,16 +87,6 @@ class Shot():
         comment                 = self.client.GET("/shots/{}/comments/{}".format(shot_id, comment_id))
         return comment.json()
 
-    def check_user_likes_comment(self, comment_id, shot_id=None):
-
-        """
-            Check if the authenticated user likes a comment
-            http://developer.dribbble.com/v1/shots/comments/#check-if-you-like-a-comment
-        """
-
-        shot_id                 = shot_id if shot_id is not None else self.shot_id
-        result                  = self.client.GET("/shots/{}/comments/{}/like".format(shot_id, comment_id))
-        return result
 
     def like_comment(self, comment_id, shot_id=None):
 
@@ -173,14 +163,3 @@ class Shot():
         shot_id                 = shot_id if shot_id is not None else self.shot_id
         projects                = self.client.GET("/shots/{}/rebounds".format(shot_id))
         return projects.json()
-
-    def check_user_likes_shot(self, shot_id=None):
-
-        """
-            Checks if the authenticated user likes a single shot
-            http://developer.dribbble.com/v1/shots/likes/#check-if-you-like-a-shot
-        """
-
-        shot_id                 = shot_id if shot_id is not None else self.shot_id
-        like_shot               = self.client.GET("/shots/{}/like".format(shot_id))
-        return like_shot

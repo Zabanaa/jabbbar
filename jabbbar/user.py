@@ -106,9 +106,7 @@ class User():
         he/she also must be a drafted player
             http://developer.dribbble.com/v1/shots/#create-a-shot
         """
-
-        upload_shot = self.client.POST("/shots", data=shot_data)
-        return upload_shot
+        pass
 
     def update_shot(self, shot_id, shot_data):
 
@@ -124,5 +122,13 @@ class User():
             Delete a specific shot
             http://developer.dribbble.com/v1/shots/#delete-a-shot
         """
-
         pass
+
+    def check_user_likes_shot(self, shot_id):
+
+        """
+            Checks if the authenticated user likes a single shot
+            http://developer.dribbble.com/v1/shots/likes/#check-if-you-like-a-shot
+        """
+        like_shot               = self.client.GET("/shots/{}/like".format(shot_id))
+        return like_shot
