@@ -41,10 +41,10 @@ Depending on your setup and virtualenv settings you may need sudo privileges
 
 ```python
 
-import jabbbar
+from jabbbar import Jabbbar
 
 # Instantiate the client object
-client  = jabbbar.Jabbbar(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET',
+client  = Jabbbar(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET',
 redirect_uri('https://yoursite.com/authorize')
 
 # Generate an authorisation url for your application
@@ -66,7 +66,7 @@ access_token = client.set_access_token("CODE_RETURNED_IN_REDIRECT")
 
 You can also instantiate a client directly by passing it an access_token if you have one
 ```python
-client = jabbbar.Jabbbar(access_token="YOUR_ACCESS_TOKEN")
+client = Jabbbar(access_token="YOUR_ACCESS_TOKEN")
 ```
 
 With your access token set, you can start making calls to the API.
@@ -81,13 +81,10 @@ Each of these classes represent a collection of resources accessible through the
 To use them, simply import them into your app like this
 
 ```python
-from jabbbar.Bucket import Bucket
-from jabbbar.Project import Project
-# ...
+from jabbar import Bucket, Project # etc ...
 ```
 
 ## Examples
-
 
 ### Users
 Create a user object
@@ -123,13 +120,13 @@ shots.get_one(1234567890)
 
 ```python
 # Instantiate a Team object
-my_team = Team(client, team_id="name_of_the_team")
+my_team = Team(client, team_name="name_of_the_team")
 
 # Get a list of all of the team players
 my_team.list_players()
 
 # You can also list the players for other teams
-my_team.list_players(team_id="some_other_team")
+my_team.list_players(team_name="some_other_team")
 ```
 
 ### Projects
