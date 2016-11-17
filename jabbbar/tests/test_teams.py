@@ -11,7 +11,7 @@ def test_list_players():
     assert isinstance(response, list)
 
     # List all the players who are part of another team
-    response        = test_team.list_players(team_id="ueno")
+    response        = test_team.list_players(team_name="ueno")
     assert isinstance(response, list)
 
 
@@ -21,5 +21,5 @@ def test_list_shots():
     assert isinstance(response, list)
 
     # List all the shots published by another team
-    response        = test_team.list_shots(team_id="ueno")
+    response        = test_team.list_shots(team_name="ueno")
     assert isinstance(response, list)
