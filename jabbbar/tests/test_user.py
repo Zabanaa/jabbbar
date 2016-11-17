@@ -1,4 +1,4 @@
-from jabbbar.user import User
+from jabbbar import User
 from . import client
 
 TEST_USERNAME   = "kolage"

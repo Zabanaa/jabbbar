@@ -1,5 +1,5 @@
 import os
-from jabbbar.shots import Shots
+from jabbbar import Shots
 from . import client
 
 test_shots = Shots(client)

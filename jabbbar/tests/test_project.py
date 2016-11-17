@@ -1,4 +1,4 @@
-from jabbbar.project import Project
+from jabbbar import Project
 from . import client
 
 DEFAULT_PROJECT_ID = 3

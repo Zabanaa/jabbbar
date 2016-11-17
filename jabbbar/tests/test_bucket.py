@@ -1,4 +1,4 @@
-from jabbbar.bucket import Bucket
+from jabbbar import Bucket
 from . import client
 
 EXTERNAL_BUCKET_ID  = 2755

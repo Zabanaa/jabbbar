@@ -1,4 +1,4 @@
-from jabbbar.shot import Shot
+from jabbbar import Shot
 from . import client
 
 DEFAULT_SHOT_ID            = 1757843

@@ -1,4 +1,4 @@
-from jabbbar.team import Team
+from jabbbar import Team
 from . import client
 
 DEFAULT_TEAM_ID = "Creativedash"
