@@ -1,6 +1,6 @@
 class Team():
 
-    def __init__(self, client, team_name):
+    def __init__(self, client, team_name=None):
         self.client     = client
         self.team_name  = str(team_name)
 

@@ -1,6 +1,6 @@
 class Shot():
 
-    def __init__(self, client, shot_id):
+    def __init__(self, client, shot_id=None):
         self.client  = client
         self.shot_id = shot_id
 

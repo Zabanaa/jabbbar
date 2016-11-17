@@ -1,6 +1,6 @@
 class Project():
 
-    def __init__(self, client, project_id):
+    def __init__(self, client, project_id=None):
         self.client     = client
         self.project_id = project_id
 
