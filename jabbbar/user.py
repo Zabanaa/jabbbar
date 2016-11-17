@@ -98,3 +98,31 @@ class User():
     def unfollow_user(self, target_user):
         unfollow_user_response      = self.client.DELETE("/users/{target_user}/follow".format(target_user=target_user))
         return unfollow_user_response
+
+    def upload_shot(self, shot_data):
+
+        """
+            Uploads a shot to the user's account (the user must be authenticated with the upload scope,
+        he/she also must be a drafted player
+            http://developer.dribbble.com/v1/shots/#create-a-shot
+        """
+
+        upload_shot = self.client.POST("/shots", data=shot_data)
+        return upload_shot
+
+    def update_shot(self, shot_id, shot_data):
+
+        """
+            Update information about a shot
+            http://developer.dribbble.com/v1/shots/#update-a-shot
+        """
+        pass
+
+    def delete_shot(self, shot_id):
+
+        """
+            Delete a specific shot
+            http://developer.dribbble.com/v1/shots/#delete-a-shot
+        """
+
+        pass

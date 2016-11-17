@@ -98,3 +98,11 @@ def test_unfollow():
     response    = test_user.unfollow_user(target_user="ghanipradita")
     assert status_code == 204
 
+def test_upload_shot():
+    pass
+
+def test_update_shot():
+    pass
+
+def test_delete_shot():
+    pass

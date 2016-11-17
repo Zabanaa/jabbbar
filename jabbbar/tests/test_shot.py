@@ -1,3 +1,4 @@
+import os
 from jabbbar import Shot
 from . import client
 
@@ -6,7 +7,39 @@ DEFAULT_COMMENT_ID         = 3991565
 EXTERNAL_SHOT_ID           = 3064133
 EXTERNAL_COMMENT_ID        = 5690090
 DEFAULT_ATTACHEMENT_ID     = 285772
-test_shot = Shot(client, DEFAULT_SHOT_ID)
+test_shot = Shot(client, shot_id=DEFAULT_SHOT_ID)
+
+DEFAULT_SHOT_ID      = 471756
+
+PATH_TO_IMG          = os.path.dirname(__file__)
+
+DEFAULT_UPLOAD_PARAMS = {
+    'title': 'Bruv new shot',
+    'image': os.path.join(PATH_TO_IMG, 'sample.png'),
+    'description': 'Testing shot uploading on this ting',
+    'tags': ['mad ting'],
+    'team_id': None,
+    'rebound_source_id': None
+}
+
+DEFAULT_QUERY_PARAMS = {
+    'list': 'debuts',
+    'timeframe': 'month',
+    'date': '20151121',
+    'sort': 'comments'
+}
+
+def test_list_all():
+
+    response = test_shot.list_all(DEFAULT_QUERY_PARAMS)
+    assert isinstance(response, list)
+
+def test_get_one():
+    response = test_shot.get_one(DEFAULT_SHOT_ID)
+    assert response['id'] == DEFAULT_SHOT_ID
+
+    response = test_shot.get_one(1209392210321321)
+    assert 'Not found.' in response['message']
 
 def test_list_attachments():
     # List attachements for the instanciated shot

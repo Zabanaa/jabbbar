@@ -4,6 +4,27 @@ class Shot():
         self.client  = client
         self.shot_id = shot_id
 
+    def list_all(self, params):
+
+        """
+            Retrieve a list of all uploaded shots on the site
+            http://developer.dribbble.com/v1/shots/#list-shots
+        """
+
+        shots = self.client.GET("/shots")
+        return shots.json()
+
+    def get_one(self, shot_id=None):
+
+        """
+            Get details for a specific shot
+            http://developer.dribbble.com/v1/shots/#get-a-shot
+        """
+
+        shot_id             = shot_id if shot_id is not None else self.shot_id
+        shot_info   = self.client.GET("/shots/{}".format(shot_id))
+        return shot_info.json()
+
     def list_attachments(self, shot_id=None):
 
         """
