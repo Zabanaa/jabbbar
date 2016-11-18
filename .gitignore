@@ -10,6 +10,7 @@
 /include
 /lib
 /man
+.tox/
 
 # Do not wants
 *.py[c|o]
