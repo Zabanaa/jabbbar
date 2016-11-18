@@ -8,7 +8,7 @@ setup(
     author="Karim Cheurfi (Zabana)",
     author_email="karim.cheurfi@gmail.com",
     license="WTFPL",
-    packages=[find_packages(exclude=['tests*'])],
+    packages=find_packages(exclude=['tests*']),
     install_requires=['requests'],
     keywords=["dribbble", "api", "http", "wrapper", "jabbbar"],
     classifiers=[
@@ -16,7 +16,6 @@ setup(
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content'
+        'Programming Language :: Python'
     ]
 )
