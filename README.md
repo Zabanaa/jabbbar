@@ -243,6 +243,7 @@ Jabbbar is licensed under the Do What The Fuck You Want license.
 - [ ] Create a `Jabbar.rate_limit()` method
 - [ ] Create a `Jabbar.remaining_requests()` method
 - [ ] Create a `Jabbar.rate_limit()` method
+- [ ] Test on python 3.2, 3.3, and 3.5
 
 _Need a player account_
 - [ ] `Shots.upload`
