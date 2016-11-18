@@ -1,5 +1,15 @@
+import os
 from jabbbar import Jabbbar
-from .credentials import *
+
+if 'CLIENT_ID' in os.environ and 'CLIENT_SECRET' in os.environ and 'ACCESS_TOKEN' in os.environ:
+    CLIENT_ID = os.environ['CLIENT_ID']
+    CLIENT_SECRET = os.environ['CLIENT_SECRET']
+    ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+else:
+    try:
+        from jabbbar.tests.credentials import *
+    except ImportError:
+        print("Please create a credendtials.py file in this package, based upon credentials.example.py")
 
 client = Jabbbar(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN, state="myrandomkey",\
                   redirect_uri=REDIRECT_URI)
