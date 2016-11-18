@@ -132,3 +132,12 @@ class User():
         """
         like_shot               = self.client.GET("/shots/{}/like".format(shot_id))
         return like_shot
+
+    def check_user_likes_comment(self, comment_id, shot_id):
+        """
+            Check if the authenticated user likes a comment
+            http://developer.dribbble.com/v1/shots/comments/#check-if-you-like-a-comment
+        """
+
+        result                  = self.client.GET("/shots/{}/comments/{}/like".format(shot_id, comment_id))
+        return result
