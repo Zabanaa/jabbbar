@@ -11,6 +11,8 @@ else:
     except ImportError:
         print("Please create a credendtials.py file in this package, based upon credentials.example.py")
 
+REDIRECT_URI = "http://localhost:3000"
+
 client = Jabbbar(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN, state="myrandomkey",\
                   redirect_uri=REDIRECT_URI)
 
