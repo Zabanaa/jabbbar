@@ -14,7 +14,7 @@ else:
 
 REDIRECT_URI = "http://localhost:3000"
 
-client = Jabbbar(access_token=ACCESS_TOKEN,redirect_uri=REDIRECT_URI)
+client = Jabbbar(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN,redirect_uri=REDIRECT_URI)
 
 userless_client = Jabbbar(client_token=CLIENT_TOKEN)
 
