@@ -40,16 +40,16 @@ Depending on your setup and virtualenv settings you may need sudo privileges
 ### Authentication
 
 ```python
-
 from jabbbar import Jabbbar
 
 # Instantiate the client object
-client  = Jabbbar(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET',
-redirect_uri('https://yoursite.com/authorize')
+client  = Jabbbar(client_id='CLIENT_ID', client_secret='CLIENT_SECRET', redirect_uri='https://yoursite.com/authorize')
+
+# You can also pass optional scope and state params
+client = Jabbbar(client_id='CLIENT_ID', client_secret='CLIENT_SECRET', scope=['write','upload'], state="somerandomsecretstring")
 
 # Generate an authorisation url for your application
 auth_url = client.auth_url
-
 ```
 
 Send your users to the `auth_url`. After they authorise your app, they will be redirected
