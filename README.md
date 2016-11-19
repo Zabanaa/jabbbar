@@ -254,3 +254,6 @@ _Need a player account_
 - [ ] `Shot.create_comment`
 - [ ] `Shot.update_comment`
 - [ ] `Shot.delete_comment`
+
+## Build Status
+[![Build Status](https://travis-ci.org/Zabanaa/jabbbar.svg?branch=master)](https://travis-ci.org/Zabanaa/jabbbar)
