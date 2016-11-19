@@ -28,6 +28,8 @@ _Be careful NOT to share your client secret publicly_
 
 ## Installation
 
+_Note: jabbbar is only compatible with python 3.3 and up_
+
 You can easily install Jabbbar through pip by like so
 ```bash
 pip install jabbbar
@@ -40,16 +42,16 @@ Depending on your setup and virtualenv settings you may need sudo privileges
 ### Authentication
 
 ```python
-
 from jabbbar import Jabbbar
 
 # Instantiate the client object
-client  = Jabbbar(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET',
-redirect_uri('https://yoursite.com/authorize')
+client  = Jabbbar(client_id='CLIENT_ID', client_secret='CLIENT_SECRET', redirect_uri='https://yoursite.com/authorize')
+
+# You can also pass optional scope and state params
+client = Jabbbar(client_id='CLIENT_ID', client_secret='CLIENT_SECRET', scope=['write','upload'], state="somerandomsecretstring")
 
 # Generate an authorisation url for your application
 auth_url = client.auth_url
-
 ```
 
 Send your users to the `auth_url`. After they authorise your app, they will be redirected
@@ -70,6 +72,17 @@ client = Jabbbar(access_token="YOUR_ACCESS_TOKEN")
 ```
 
 With your access token set, you can start making calls to the API.
+
+## Userless Access
+
+Since version 0.2.0, you can make read-only requests against the API's public endpoints.
+
+To do so, just copy your `client access token` (found in your application page on dribbble.com) and pass it to the client instance.
+
+```python
+client = Jabbbar(client_token="YOUR_CLIENT_TOKEN")
+```
+_Note that you will not be able to access protected resources with a userless client_
 
 ## Usage
 
@@ -239,11 +252,8 @@ Jabbbar is licensed under the Do What The Fuck You Want license.
 
 ## Todo
 
-- [ ] Add support for userless access
 - [ ] Create a `Jabbar.rate_limit()` method
 - [ ] Create a `Jabbar.remaining_requests()` method
-- [ ] Create a `Jabbar.rate_limit()` method
-- [ ] Test on python 3.2, 3.3, and 3.5
 
 _Need a player account_
 - [ ] `Shots.upload`
@@ -254,3 +264,6 @@ _Need a player account_
 - [ ] `Shot.create_comment`
 - [ ] `Shot.update_comment`
 - [ ] `Shot.delete_comment`
+
+## Build Status
+[![Build Status](https://travis-ci.org/Zabanaa/jabbbar.svg?branch=master)](https://travis-ci.org/Zabanaa/jabbbar)
