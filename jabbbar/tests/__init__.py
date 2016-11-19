@@ -5,6 +5,7 @@ if 'CLIENT_ID' in os.environ and 'CLIENT_SECRET' in os.environ and 'ACCESS_TOKEN
     CLIENT_ID = os.environ['CLIENT_ID']
     CLIENT_SECRET = os.environ['CLIENT_SECRET']
     ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+    CLIENT_TOKEN = os.environ['CLIENT_TOKEN']
 else:
     try:
         from jabbbar.tests.credentials import *
@@ -13,8 +14,9 @@ else:
 
 REDIRECT_URI = "http://localhost:3000"
 
-client = Jabbbar(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, access_token=ACCESS_TOKEN, state="myrandomkey",\
-                  redirect_uri=REDIRECT_URI)
+client = Jabbbar(access_token=ACCESS_TOKEN,redirect_uri=REDIRECT_URI)
+
+userless_client = Jabbbar(client_token=CLIENT_TOKEN)
 
 def test_generate_auth_url():
     auth_url     = client.auth_url

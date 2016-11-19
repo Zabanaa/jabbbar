@@ -9,7 +9,7 @@ SCOPE           = ['write', 'public', 'comment', 'upload']
 
 class Jabbbar(object):
 
-    def __init__(self, client_id=None, client_secret=None, redirect_uri=None, access_token=None, state=None, scope=SCOPE):
+    def __init__(self, client_id=None, client_secret=None, redirect_uri=None, client_token=None, access_token=None, state=None, scope=SCOPE):
         self.client_id          = client_id
         self.client_secret      = client_secret
         self.redirect_uri       = redirect_uri
@@ -17,6 +17,8 @@ class Jabbbar(object):
         self.scope              = "+".join(scope)
         self.access_token       = access_token
         self.auth_header        = {'Authorization': 'Bearer {}'.format(self.access_token)}
+        self.client_token       = client_token
+        self.userless           = not bool(self.access_token) # Userless if no access_token is passed
 
     @property
     def auth_url(self):
@@ -45,9 +47,15 @@ class Jabbbar(object):
     def _create_request_url(self, resource_url):
         return "{api_endpoint}{resource_url}".format(api_endpoint=API_URL, resource_url=resource_url)
 
-    def GET(self, resource_endpoint):
+    def GET(self, resource_endpoint, query_params={}):
         url         = self._create_request_url(resource_endpoint)
-        return req.get(url, headers=self.auth_header)
+        params = query_params.copy() # Copy the query params object so we can append the credentials to it
+
+        if self.userless:
+            params['access_token'] = self.client_token
+            return req.get(url, params=params)
+        else:
+            return req.get(url, headers=self.auth_header)
 
     def POST(self, resource_endpoint, data={}):
         url         = self._create_request_url(resource_endpoint)

@@ -4,14 +4,14 @@ class Shot():
         self.client  = client
         self.shot_id = shot_id
 
-    def list_all(self, params):
+    def list_all(self, params={}):
 
         """
             Retrieve a list of all uploaded shots on the site
             http://developer.dribbble.com/v1/shots/#list-shots
         """
 
-        shots = self.client.GET("/shots")
+        shots = self.client.GET("/shots", query_params=params)
         return shots.json()
 
     def get_one(self, shot_id=None):
