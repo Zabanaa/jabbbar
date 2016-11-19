@@ -6,4 +6,10 @@ python:
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
-script: nosetests
+script:
+    - nosetests jabbbar/tests/__init__.py
+    - nosetests jabbbar/tests/test_user.py
+    - nosetests jabbbar/tests/test_shot.py
+    - nosetests jabbbar/tests/test_bucket.py
+    - nosetests jabbbar/tests/test_team.py
+    - nosetests jabbbar/tests/test_project.py
