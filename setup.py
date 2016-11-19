@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="jabbbar",
-    version="0.1.0",
+    version="0.2.0",
     description="A python 3 wrapper for the Dribbble API",
     url="https://github.com/zabanaa/jabbbar",
     author="Karim Cheurfi (Zabana)",
@@ -16,6 +16,9 @@ setup(
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python'
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5'
     ]
 )
