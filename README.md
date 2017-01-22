@@ -3,24 +3,24 @@ style="display: block; margin: 0 auto;">
 
 # Jabbbar
 
-Jabbbar is a wrapper for the Dribbble API. It is written in Python 3 and it's designed to
-help you interface with the resources and content served by Dribbble. It will allow you to
-effortlessly make calls.
+Jabbbar is a Python 3 wrapper for the Dribbble API. It is designed to help you
+effortlessly interface with the resources and content served by Dribbble.
 
 _Please note that you are limited to 60 requests per minute and 1440 requests per day (for
 calls using OAuth)_
 
 ## Requirements
 
-Before you start using Jabbbar, please ensure you have registered an application with
-Dribbble on their [developers site][1].
+Before you start using Jabbbar, please ensure you have that you have registered
+an application with Dribbble on their [developers site][1].
 
-You will be asked to give your app a name, a description, a url and a callback url. (Which
-will be used to redirect your users to your site after they agree to give you access to
-their account information).
+You will be asked to give your app a name, a description, a url and a callback
+url. (Which will be used to redirect users to your site after they agree to
+grant you access to their account).
 
-When your app is registered, You will be given two keys: a **client id** and a **client secret**. Make note of
-those as you will need both to request an access token.
+When your app is registered, You will be receive two keys: a **client id** and a
+**client secret**. Make note of those as you will need both to request an
+access token.
 
 _Be careful NOT to share your client secret publicly_
 
@@ -30,12 +30,11 @@ _Be careful NOT to share your client secret publicly_
 
 _Note: jabbbar is only compatible with python 3.3 and up_
 
-You can easily install Jabbbar through pip by like so
+To start using Jabbbar in your project, simply run
 ```bash
 pip install jabbbar
 ```
-
-Depending on your setup and virtualenv settings you may need sudo privileges
+Depending on your setup and virtualenv settings you may need sudo privileges.
 
 ## Usage
 
@@ -54,9 +53,9 @@ client = Jabbbar(client_id='CLIENT_ID', client_secret='CLIENT_SECRET', scope=['w
 auth_url = client.auth_url
 ```
 
-Send your users to the `auth_url`. After they authorise your app, they will be redirected
-to the `redirect_uri` you've set in the previous step. The url will contain a query
-parameter of `code` that looks something like this:
+Send your users to the `auth_url`. After they authorise your app, they will be
+redirected to the `redirect_uri` you've set in the previous step. The url will
+contain a query parameter of `code` that looks something like this:
 `http://yoursite.com/your_redirect_url?code="CODE_RETURNED_IN_REDIRECT"`.
 
 In your web application back-end, retrieve the code and use it to request an access_token.
@@ -75,23 +74,27 @@ With your access token set, you can start making calls to the API.
 
 ## Userless Access
 
-Since version 0.2.0, you can make read-only requests against the API's public endpoints.
+Since version 0.2.0, you can make read-only requests against the API's public
+endpoints.
 
-To do so, just copy your `client access token` (found in your application page on dribbble.com) and pass it to the client instance.
+To do so, just copy your `client access token` (found in your application page
+on dribbble.com) and pass it to the client instance.
 
 ```python
 client = Jabbbar(client_token="YOUR_CLIENT_TOKEN")
 ```
-_Note that you will not be able to access protected resources with a userless client_
+_Note that you will not be able to access protected resources with a userless
+instance_
 
 ## Usage
 
-Jabbbar exposes the following classes to help you create more readable code: `Bucket`,
-`Project`, `Shot`, `Shots`, `Team`, `User`
+Jabbbar exposes the following classes to help you create more readable code:
+`Bucket`, `Project`, `Shot`, `Shots`, `Team`, `User`
 
-Each of these classes represent a collection of resources accessible through the API
+Each class is a direct representation of a resource collection accessible
+through the API.
 
-To use them, simply import them into your app like this
+To use them, simply import them into your app like this:
 
 ```python
 from jabbar import Bucket, Project # etc ...
@@ -242,9 +245,9 @@ In order to run the tests, follow these 3 steps:
 
 ## Contribution and Improvements
 
-If you spot code smells and wish to make improvements, please feel free to do so by way of
-pull requests, explaining how the solution you're proposing is better (purely for learning
-purposes)
+If you spot code smells and wish to make improvements, please feel free to do so
+by way of pull requests, explaining how the solution you're proposing is better
+(I don't have a massive ego, I'm just trying to improve :smile:)
 
 ## License
 
